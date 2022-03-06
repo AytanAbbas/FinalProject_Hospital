@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+@model Team
+<div class="body d-flex py-3">
+    <div class="container-xxl">
+        <div class="row align-items-center">
+            <div class="border-0 mb-4">
+                <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                    <h3 class="fw-bold mb-0">Add Doctor</h3>
+                </div>
+            </div>
+        </div> <!-- Row end  -->
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <div class="card mb-3">
+                    <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                        <h6 class="mb-0 fw-bold ">Doctor Basic Inforamtion</h6>
+                    </div>
+                    <div class="card-body">
+                        <form class="row p-5" asp-area="admin" asp-controller="Team" asp-action="Update" method="post" enctype="multipart/form-data">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Fullname" class="form-label">Full Name</label>
+                                    <input type="text" asp-for="@Model.Fullname" class="form-control" id="fullname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" asp-for="@Model.Phone" id="phonenumber" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" asp-for="@Model.Email" id="emailaddress" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Position" class="form-label">Position </label>
+                                    <input type="text" class="form-control" asp-for="@Model.Position" id="position" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.CabinNumber" class="form-label">CabinNumber </label>
+                                    <input type="number" class="form-control" asp-for="@Model.CabinNumber" id="cabinNumber" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Experience" class="form-label">Experience </label>
+                                    <input type="text" class="form-control" asp-for="@Model.Experience" id="experience" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Certification" class="form-label">Certification </label>
+                                    <input type="text" class="form-control" asp-for="@Model.Certification" id="certification" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.PracticeArea" class="form-label">PracticeArea </label>
+                                    <input type="text" class="form-control" asp-for="@Model.PracticeArea" id="practiceArea" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="@Model.UniversityId" class="form-label" style=" margin-left: 38%;"> Medical University</label>
+                                    <select class="form-control mb-3" aria-label="Default select example" asp-for="@Model.UniversityId">
+                                        <option selected>Select Medical</option>
+                                        @foreach (var item in ViewBag.University)
+                                        {
+                                            <option value="@item.Id">@item.Medical</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="@Model.UniversityId" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="@Model.UniversityId" class="form-label" style=" margin-left: 38%;"> Residency University</label>
+                                    <select class="form-control mb-3" aria-label="Default select example" asp-for="@Model.UniversityId">
+                                        <option selected>Select Residency</option>
+                                        @foreach (var item in ViewBag.University)
+                                        {
+                                            <option value="@item.Id">@item.Residency</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="@Model.UniversityId" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="@Model.SkillToTeamsId" class="form-label" style=" margin-left: 38%;"> Skills</label>
+                                    <select class="form-control mb-3" aria-label="Default select example" multiple asp-for="@Model.SkillToTeamsId">
+                                        <option selected>Select Residency</option>
+                                        @foreach (var item in ViewBag.Skill)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="@Model.SkillToTeamsId" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="@Model.TeamExperiencesId" class="form-label" style=" margin-left: 38%;"> Experiences</label>
+                                    <select class="form-control mb-3" aria-label="Default select example" multiple asp-for="@Model.TeamExperiencesId">
+                                        <option selected>TeamExperiences</option>
+                                        @foreach (var item in ViewBag.WorkExperience)
+                                        {
+                                            <option value="@item.Id">@item.Icon</option>
+
+                                        }
+                                    </select>
+                                    <span asp-validation-for="@Model.TeamExperiencesId" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.ImageFile" class="form-label"> Document Upload</label>
+                                    <input class="form-control" type="file" asp-for="@Model.ImageFile" id="formFileMultiple" multiple required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label asp-for="@Model.Biography" class="form-label">Biography</label>
+                                    <textarea class="form-control" asp-for="@Model.Biography" id="biography" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-4">Update</button>
+                            <a asp-area="Admin" asp-controller="Team" asp-action="Index">Back to list</a>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

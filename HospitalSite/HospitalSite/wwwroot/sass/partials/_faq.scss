@@ -1,0 +1,116 @@
+main {
+    .faq {
+        padding: 90px 0;
+        .section-title {
+            position: relative;
+            margin-bottom: 26px;
+            .title-header {
+                position: relative;
+                margin-bottom: 17px;
+                h2 {
+                    color: #031b4e;
+                    font-weight: 700;
+                    font-size: 33px;
+                    line-height: 43px;
+                    margin-bottom: 0;
+                }
+            }
+            .title-desc {
+                a {
+                    color: #031b4e;
+                    transition: all 0.3s ease 0s;
+                }
+            }
+        }
+        .question {
+            background-color: #f6faff;
+            .question-bg-layer {
+                .question-content {
+                    position: relative;
+                    z-index: 1;
+                    .section-title {
+                        position: relative;
+                        margin-bottom: 26px;
+                        .title-header {
+                            position: relative;
+                            margin-bottom: 17px;
+                            h2 {
+                                color: #031b4e;
+                                font-weight: 700;
+                                font-size: 33px;
+                                line-height: 43px;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                    form {
+                        label {
+                            width: 100%;
+                            margin: 0;
+                            span {
+                                margin-bottom: 30px;
+                                display: block;
+                                position: relative;
+                                input {
+                                    transition: border linear .2s, box-shadow linear .2s;
+                                    vertical-align: middle;
+                                    width: 100%;
+                                    margin-bottom: 25px;
+                                    padding: 12px 15px 11px;
+                                    border-radius: 3px;
+                                    font-weight: 400;
+                                    background-color: #fff;
+                                    text-transform: inherit;
+                                    border: 1px solid rgba(0, 43, 92, 0.08);
+                                    font-size: 14px;
+                                    outline: none;
+                                    line-height: inherit;
+                                    letter-spacing: 0px;
+                                }
+                                textarea {
+                                    transition: border linear .2s, box-shadow linear .2s;
+                                    vertical-align: middle;
+                                    width: 100%;
+                                    color: #8a91ac;
+                                    padding: 12px 15px 11px;
+                                    border-radius: 3px;
+                                    font-weight: 400;
+                                    background-color: #fff;
+                                    text-transform: inherit;
+                                    border: 1px solid rgba(0, 43, 92, 0.08);
+                                    font-size: 14px;
+                                    outline: none;
+                                    line-height: inherit;
+                                    letter-spacing: 0px;
+                                }
+                            }
+                            button {
+                                border-color: #3368c6;
+                                color: #fff;
+                                background-color: #3368c6;
+                                border-radius: 3px;
+                                font-size: 14px;
+                                padding: 11px 31px 11px 31px;
+                                display: inline-block;
+                                vertical-align: middle;
+                                background: transparent;
+                                border: 1px solid #eaeff5;
+                                position: relative;
+                                font-weight: 600;
+                                overflow: hidden;
+                                line-height: normal;
+                                text-transform: capitalize;
+                                z-index: 1;
+                                transition: all 0.5s ease 0s;
+                                &:hover {
+                                    border-color: #031b4e;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

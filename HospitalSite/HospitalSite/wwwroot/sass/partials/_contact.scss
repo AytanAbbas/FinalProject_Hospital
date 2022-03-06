@@ -1,0 +1,124 @@
+main {
+    .contact {
+        .title {
+            h4 {
+                font-size: 25px;
+                line-height: 32px;
+                font-family: Poppins, sans-serif;
+                margin-bottom: 15px;
+                font-weight: 600;
+                color: #031b4e;
+            }
+        }
+        .contact-box {
+            position: relative;
+            .contact-icon {
+                vertical-align: top;
+                display: table-cell;
+                .ttm-icon {
+                    margin-bottom: 0;
+                    height: auto;
+                    width: auto;
+                    line-height: 1;
+                    color: #3368c6;
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-align: center;
+                    border: 1px solid transparent;
+                    box-sizing: content-box;
+                    position: relative;
+                    font-size: 38px;
+                }
+            }
+            .contact-content {
+                padding-left: 27px;
+                display: table-cell;
+                vertical-align: middle;
+                .contact-title {
+                    h5 {
+                        margin-bottom: 4px;
+                        color: #031b4e;
+                        font-size: 19px;
+                        line-height: 24px;
+                        font-weight: 500;
+                    }
+                }
+                .contact-desc {
+                    p {
+                        font-size: 15px;
+                        line-height: 24px;
+                        margin-bottom: 0;
+                    }
+                    a {
+                        color: #8A91AC;
+                        font-size: 15px;
+                        transition: all 0.3s ease 0s;
+                        &:hover {
+                            color: #3368c6;
+                        }
+                    }
+                }
+            }
+        }
+        .social-icons {
+            li {
+                display: inline-block;
+                border: none;
+                z-index: 1;
+                position: relative;
+                margin: 0 2px;
+                a {
+                    border: 1px solid;
+                    height: 33px;
+                    width: 33px;
+                    line-height: 33px;
+                    text-align: center;
+                    display: block;
+                    background-color: transparent;
+                    font-size: 13px;
+                    border-radius: 50%;
+                    min-width: 26px;
+                    &::before {
+                        content: "";
+                        bottom: 100%;
+                        left: 50%;
+                        margin-left: -6px;
+                        margin-bottom: -12px;
+                        z-index: 1001;
+                        border: 6px solid transparent;
+                        position: absolute;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: opacity .2s ease-in-out, visibility .2s ease-in-out, transform .2s cubic-bezier(.71, 1.7, .77, 1.24);
+                        transform: translate3d(0, 0, 0);
+                        pointer-events: none;
+                        border-top-color: #031b4e !important;
+                    }
+                    & ::after {
+                        z-index: 1000;
+                        padding: 8px;
+                        width: 120px;
+                        color: #fff;
+                        content: attr(data-tooltip);
+                        font-size: 14px;
+                        line-height: 1.2;
+                        text-align: center;
+                        border-radius: 5px;
+                        margin-left: -60px;
+                        bottom: 100%;
+                        left: 50%;
+                        position: absolute;
+                        visibility: hidden;
+                        transition: opacity .2s ease-in-out, visibility .2s ease-in-out, transform .2s cubic-bezier(.71, 1.7, .77, 1.24);
+                        transform: translate3d(0, 0, 0);
+                        pointer-events: none;
+                    }
+                    &:hover {
+                        color: #fff;
+                        background-color: #031b4e;
+                    }
+                }
+            }
+        }
+    }
+}

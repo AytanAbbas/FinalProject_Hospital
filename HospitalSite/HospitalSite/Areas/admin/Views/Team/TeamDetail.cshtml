@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewData["Title"] = "TeamDetail";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+@model VmTeam
+<div class="body d-flex py-3">
+    <div class="container-xxl">
+
+        <div class="row g-3">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="card teacher-card  mb-3">
+                    <div class="card-body d-flex teacher-fulldeatil">
+                        <div class="profile-teacher pe-xl-4 pe-md-2 pe-sm-4 pe-4 text-center w220">
+                            <a href="#">
+                                <img src="~/Uploads/@Model.TeamDetail.Image" alt="" class="avatar xl rounded-circle img-thumbnail shadow-sm">
+                            </a>
+                            <div class="about-info d-flex align-items-center mt-3 justify-content-center flex-column">
+                                <i class="icofont-email"></i>
+                                <span class="text-muted small">@Model.TeamDetail.Email</span>
+                            </div>
+
+                        </div>
+                        <div class="teacher-info border-start ps-xl-4 ps-md-4 ps-sm-4 ps-4 w-100">
+                            <h6 class="mb-0 mt-2  fw-bold d-block fs-6">Dr.@Model.TeamDetail.Fullname</h6>
+                            <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted">@Model.TeamDetail.Position</span>
+                            <p class="mt-2"> @Model.TeamDetail.Biography</p>
+
+                            <div class="row g-2 pt-2">
+                                <div class="col-xl-5">
+                                    <div class="d-flex align-items-center">
+                                        <i class="icofont-ui-touch-phone"></i>
+                                        <span class="ms-2">@Model.TeamDetail.Phone </span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <div class="d-flex align-items-center">
+                                        CabineNo :
+                                        <span class="ms-2">@Model.TeamDetail.CabinNumber </span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <div class="d-flex align-items-center">
+                                        <i class="icofont-doctor"></i>
+                                        <span class="ms-2">@Model.TeamDetail.Experience</span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <div class="d-flex align-items-center">
+                                        <i class="icofont-university"></i>
+                                        <span class="ms-2">Medical: @Model.TeamDetail.University.Medical</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <div class="d-flex align-items-center">
+                                        <i class="icofont-certificate-alt-2"></i>
+                                        <span class="ms-2">Certification: @Model.TeamDetail.Certification</span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <div class="d-flex align-items-center">
+                                        <i class="icofont-university"></i>
+                                        <span class="ms-2">Residency: @Model.TeamDetail.University.Residency</span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <div class="d-flex align-items-center">
+                                        <i class="icofont-medical-sign"></i>
+                                        <span class="ms-2">Residency: @Model.TeamDetail.University.Residency</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Row End -->
+        <a class="btn btn-light mb-3 px-4" style="background: #6aab9c; color: white" asp-area="admin" asp-controller="Team" asp-action="Create">Add A New Doctor</a>
+        <a class="btn btn-light mb-3 px-4  btn-success" style=" color: white" asp-area="Admin" asp-controller="Team" asp-action="Update" asp-route-id="@Model.TeamDetail.Id">Update</a>
+        <a class="btn btn-light mb-3 px-4 btn-danger" style=" color: white" asp-area="Admin" asp-controller="Team" asp-action="Delete" asp-route-id="@Model.TeamDetail.Id" onclick="return confirm('Are you sure?')">Delete</a>
+
+
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                        <h6 class="mb-0 fw-bold ">Skills</h6>
+                    </div>
+                    <div class="card-body">
+                        <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Percent</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int counter = 0;
+                                    if (Model.TeamDetail.SkillToTeams.Count > 0)
+                                    {
+                                        foreach (var skill in Model.TeamDetail.SkillToTeams)
+                                        {
+                                            counter++;
+                                            <tr>
+
+                                                <td style=" width: 5% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
+                                                    @counter
+                                                </td>
+                                                <td style=" width: 5% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
+
+                                                    @skill.Skill.Name
+                                                </td>
+                                                <td style=" width: 5% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
+                                                    @skill.Skill.Percent
+                                                </td>
+
+                                            </tr>
+
+
+                                        }
+                                    }
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Row End -->
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                        <h6 class="mb-0 fw-bold ">Experiences</h6>
+                    </div>
+                    <div class="card-body">
+                        <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Icon</th>
+                                    <th>Title</th>
+                                    <th>About</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int counter2 = 0;
+                                    if (Model.TeamDetail.SkillToTeams.Count > 0)
+                                    {
+                                        foreach (var exp in Model.TeamDetail.TeamExperiences)
+                                        {
+                                            counter2++;
+                                                                <tr>
+
+                                                                    <td style=" width: 5% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
+                                                                        @counter2
+                                                                    </td>
+                                                                    <td style=" width: 5% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
+
+                                                                        @exp.WorkExperience.Icon
+                                                                    </td>
+                                                                    <td style=" width: 5% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
+                                                                        @exp.WorkExperience.Title
+                                                                    </td>
+                                                                    <td style=" width: 5% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
+                                                                        @exp.WorkExperience.About
+                                                                    </td>
+
+                                                                </tr>
+
+
+                                        }
+                                    }
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+

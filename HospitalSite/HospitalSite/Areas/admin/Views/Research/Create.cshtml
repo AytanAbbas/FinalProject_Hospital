@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+@model Research
+<div class="body d-flex py-3">
+    <div class="container-xxl">
+        <div class="row align-items-center">
+            <div class="border-0 mb-4">
+                <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                    <h3 class="fw-bold mb-0">Add Research</h3>
+                </div>
+            </div>
+        </div> <!-- Row end  -->
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <div class="card mb-3">
+                   
+                    <div class="card-body">
+                        <form class="row p-5" asp-area="admin" asp-controller="Research" asp-action="Create" method="post" enctype="multipart/form-data">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Client" class="form-label">Client</label>
+                                    <input type="text" asp-for="@Model.Client" class="form-control" id="client" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Title" id="title" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Location" class="form-label">Location </label>
+                                    <input type="text" class="form-control" asp-for="@Model.Location" id="location" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.CreatedDate" class="form-label">CreatedDate </label>
+                                    <input type="datetime" class="form-control" asp-for="@Model.CreatedDate" id="createdDate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Details" class="form-label">Details </label>
+                                    <textarea class="form-control" asp-for="@Model.Details" id="details" rows="3"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.Advantages" class="form-label">Advantages </label>
+                                    <textarea class="form-control" asp-for="@Model.Advantages" id="advantages" rows="3"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="@Model.CatId" class="form-label" style=" margin-left: 38%;"> Category</label>
+                                    <select class="form-control mb-3" aria-label="Default select example" asp-for="@Model.CatId">
+                                        <option selected>Category </option>
+                                        @foreach (var item in ViewBag.Category)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="@Model.CatId" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.MainImageFile" class="form-label"> Document Upload</label>
+                                    <input class="form-control" type="file" asp-for="@Model.MainImageFile" id="formFileMultiple" multiple required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="@Model.DetailImageFile" class="form-label"> Document Upload</label>
+                                    <input class="form-control" type="file" asp-for="@Model.DetailImageFile" id="formFileMultiple" multiple required>
+                                </div>
+
+                               
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-4">Create</button>
+                            <a asp-area="Admin" asp-controller="Research" asp-action="Index">Back to list</a>
+
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

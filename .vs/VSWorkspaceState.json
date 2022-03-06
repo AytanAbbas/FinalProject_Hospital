@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\HospitalSite",
+    "\\HospitalSite\\HospitalSite",
+    "\\HospitalSite\\HospitalSite\\Areas",
+    "\\HospitalSite\\HospitalSite\\Areas\\admin",
+    "\\HospitalSite\\HospitalSite\\Views",
+    "\\HospitalSite\\HospitalSite\\Views\\Home",
+    "\\HospitalSite\\HospitalSite\\Views\\Shared",
+    "\\HospitalSite\\HospitalSite\\Views\\Team"
+  ],
+  "SelectedNode": "\\HospitalSite\\HospitalSite\\Views\\Shared\\_Layout.cshtml",
+  "PreviewInSolutionExplorer": false
+}

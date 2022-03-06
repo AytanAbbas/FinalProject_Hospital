@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+@model ServiceTexnoLab
+
+<div class="row mt-3">
+    <div class="col-lg-10" style="margin-left: auto !important; margin-right: auto !important;">
+        <div class="card">
+            <div class="card-body">
+                <div style=" font-size: 30px !important;" class="text-center card-title">Create</div>
+                <hr>
+                @{ if (TempData["ServiceTexnoLabError"] != null)
+                    {
+                        <p style="font-size: 20px !important; padding: 15px !important;" class="alert text-center text-warning">@TempData["ServiceTexnoLabError"]</p> TempData["ServiceTexnoLabError"] = null;
+                    } }
+                <form class="row p-5" asp-area="Admin" asp-controller="TexnoLab" asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div class="col-lg-12 my-3">
+                        <label class="w-100 btn btn-outline-white" asp-for="@Model.ImageFile">Choose An Image</label>
+                        <input class="d-none form-control w-50" asp-for="@Model.ImageFile">
+                        <span class="text-warning" asp-validation-for="@Model.ImageFile"></span>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <label asp-for="@Model.Title" class="form-label">Title</label>
+                        <input class="form-control" asp-for="@Model.Title" placeholder="Title">
+                        <span class="text-warning" asp-validation-for="@Model.Title"></span>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <label asp-for="@Model.About" class="form-label">About</label>
+                        <input class="form-control" asp-for="@Model.About" placeholder="About">
+                        <span class="text-warning" asp-validation-for="@Model.About"></span>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <label asp-for="@Model.FooterTitle" class="form-label">FooterTitle</label>
+                        <input class="form-control" asp-for="@Model.FooterTitle" placeholder="FooterTitle">
+                        <span class="text-warning" asp-validation-for="@Model.FooterTitle"></span>
+                    </div>
+                  
+                    <button type="submit" style=" position: relative !important; left: -13px !important;" class="btn btn-light px-5 col-lg-6 mt-4 offset-6">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

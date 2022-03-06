@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model VmResearch
+<main>
+
+ 
+
+    <div class="banner" style="background-image: url(images/background/@Model.Banner.Image);">
+        <div class="banner-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="page-title-heading">
+                            <h2 class="title">@Model.Banner.Title</h2>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html">Home</a>
+                            </span>
+                            <span>@Model.Banner.SubTitle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="research clearfix">
+        <div class="container">
+            <div class="row ">
+                @foreach (var item in Model.Researches)
+                {
+                    <div class="wrapper col-lg-4 col-md-4 col-sm-6">
+                        <div class="research-box">
+                            <div class="research-overlay">
+                                <div class="research-image">
+                                    <a  data-lightbox="mygallery"> <img class="img-fluid" src="images/research/@item.MainImage" alt="image"></a>
+                                </div>
+                              
+                                <div class="overlay-content">
+                                    <div class="featured-content ">
+                                        <div class="featured-title">
+                                            <h5><a asp-route-Id="@item.Id" asp-controller="Research" asp-action="Detail">@item.Title</a></h5>
+                                        </div>
+                                        <span class="category">@item.Category.Name</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+

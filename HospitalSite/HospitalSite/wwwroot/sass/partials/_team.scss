@@ -1,0 +1,152 @@
+main {
+    .team-section {
+        padding: 70px 0 0px;
+
+        .team-social {
+            position: relative;
+            overflow: hidden;
+
+            .team-overlay {
+                position: relative;
+                overflow: hidden;
+
+                &::after {
+                    background-color: #fff;
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    bottom: -100%;
+                    left: 0;
+                    opacity: 0;
+                    transition: all 0.3s ease 0s;
+                }
+
+                .media-link {
+                    .media-block {
+                        a {
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            z-index: 1;
+                            box-shadow: 0 0 10px 0 rgb(0 0 0 / 6%);
+                            border: none;
+                            display: block;
+                            text-align: center;
+                            height: 37px;
+                            width: 37px;
+                            line-height: 40px;
+                            background: #fff;
+                            border-radius: 100%;
+                            font-weight: 900;
+                            font-size: 15px;
+                        }
+
+                        .social-icons {
+                            position: absolute;
+                            bottom: -17px;
+                            left: 20px;
+
+                            li {
+                                display: block;
+                                margin: 4px 0 !important;
+                                transition: all .5s ease 0 !important;
+                                position: relative;
+                                opacity: 0;
+                                position: absolute;
+                                border: none;
+                                z-index: 1;
+
+                                a {
+                                    background-color: #3368c6;
+                                    height: 39px;
+                                    width: 39px;
+                                    line-height: 39px;
+                                    font-size: 14px;
+                                    border-radius: 100%;
+                                    color: #fff;
+                                    border: 1px solid transparent;
+                                    text-align: center;
+                                    transition: all .5s ease 0s;
+
+                                    &:hover {
+                                        background-color: #031b4e;
+                                    }
+
+                                    i {
+                                        line-height: 2.5;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .team-picture {
+                    position: relative;
+                    overflow: hidden;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .team-content {
+                background-color: #f6faff;
+                position: relative;
+                padding: 18px 15px;
+                text-align: center;
+                margin-bottom: 5px;
+                border-bottom: 4px solid transparent;
+                transition: all .4s;
+                box-shadow: 0 0 6px 0 rgb(0 0 0 / 10%);
+
+                .featured-title {
+                    text-align: center;
+
+                    h5 {
+                        color: #031b4e;
+                        font-size: 19px;
+                        line-height: 24px;
+                        margin-bottom: 0;
+                        font-weight: 500;
+
+                        a {
+                            transition: all 0.3s ease 0s;
+                            color: #031b4e;
+                        }
+                    }
+                }
+
+                .team-position {
+                    font-size: 14px;
+                    color: #8A91AC;
+                }
+            }
+
+            &:hover .media-btn {
+                transform: rotateY(-360deg);
+                background-color: #3368c6;
+                color: #fff;
+            }
+
+            &:hover .media-block ul li {
+                opacity: 1 !important;
+                top: auto !important;
+                transform: translateY(0) !important;
+                -webkit-transform: translateY(-50px) !important;
+            }
+
+            &:hover .team-overlay::after {
+                opacity: .40;
+                bottom: 0;
+            }
+
+            &:hover .team-content {
+                border-bottom-color: #3368c6 !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+@model AboutResearch
+
+<div class="row mt-3">
+    <div class="col-lg-10" style="margin-left: auto !important; margin-right: auto !important;">
+        <div class="card">
+            <div class="card-body">
+                <div style=" font-size: 30px !important;" class="text-center card-title">Create</div>
+                <hr>
+                <form class="p-5" asp-area="admin" asp-controller="AboutResearch" asp-action="Create" method="post">
+                    <div class="mb-3">
+                        <label asp-for="@Model.Title" class="form-label">Title </label>
+                        <input class="form-control" asp-for="@Model.Title">
+                        <span class="text-warning" asp-validation-for="@Model.Title"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.Number" class="form-label"> Number</label>
+                        <input class="form-control" asp-for="@Model.Number">
+                        <span class="text-warning" asp-validation-for="@Model.Number"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.Content" class="form-label">Content </label>
+                        <input class="form-control" asp-for="@Model.Content">
+                        <span class="text-warning" asp-validation-for="@Model.Content"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-light col-lg-6 mt-4 offset-6">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

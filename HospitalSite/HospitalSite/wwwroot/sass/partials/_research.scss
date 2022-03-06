@@ -1,0 +1,124 @@
+main {
+    .research {
+        padding: 70px 0 40px;
+
+        .wrapper {
+            padding-left: 15px;
+            margin: 0 0 30px;
+        }
+
+        .research-box {
+            position: relative;
+            overflow: hidden;
+
+            .research-overlay {
+                position: relative;
+                overflow: hidden;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    opacity: 0;
+                    z-index: 1;
+                    height: 100%;
+                    width: 100%;
+                    transition: all 0.3s ease-out 0.5s;
+                    background-color: #031b4e;
+                }
+
+                .research-image {
+                    position: relative;
+                    overflow: hidden;
+
+                    a {
+                        color: #fff;
+                        transition: all 0.3s ease 0s;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                            transition: all 0.6s ease 0s;
+                            max-width: 100%;
+                        }
+                    }
+                }
+
+
+                .overlay-content {
+                    z-index: 9;
+                    position: absolute;
+                    bottom: 5px;
+                    left: 20px;
+                    right: 20px;
+                    transform: translateY(100%);
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: .3s all ease;
+
+                    .featured-content {
+                        padding: 15px 0;
+                        padding-bottom: 8px;
+
+                        .featured-title {
+                            h5 {
+                                margin-bottom: 0;
+                                font-size: 18px;
+                                line-height: 24px;
+                                position: relative;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                color: #031b4e;
+
+                                a {
+                                    color: #fff;
+                                    transition: all 0.3s ease 0s;
+
+                                    &:hover {
+                                        letter-spacing: .8px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .category {
+                            color: #fff;
+                            font-size: 14px;
+                            line-height: 15px;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+
+
+            &:hover .overlay-content {
+                transform: translateY(0%);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &:hover .research-overlay:before {
+                opacity: .65;
+                top: 0px;
+                transition-delay: 0s;
+            }
+
+            &:hover img {
+                filter: grayscale(100%);
+                transform: scale(1.1);
+            }
+
+            &:hover .category {
+                transform: translateY(0px);
+            }
+
+            &:hover .research-link {
+                transform: translateY(-220px);
+                transition-delay: 0s;
+            }
+        }
+    }
+}

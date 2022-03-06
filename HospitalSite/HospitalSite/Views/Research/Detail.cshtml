@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@model VmResearch
+
+<main>
+    <div class="banner" style="background-image: url(/images/@Model.Banner.Image );">
+        <div class="banner-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="page-title-heading">
+                            <h2 class="title">@Model.Banner.Title</h2>
+                        </div>
+                        <div class="breadcrumb-wrapper">
+                            <span>
+                                <a title="Homepage" href="index.html">Home</a>
+                            </span>
+                            <span>@Model.Banner.SubTitle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="single-research pb-25 res-991-pb-0 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ttm-pf-single-content-wrapper-innerbox ttm-pf-view-top-image">
+                        <div class="row">
+                            <div class="col-lg-12 ttm-pf-single-detail-box">
+                                <div class="ttm-pf-detailbox">
+                                    <ul class="ttm-pf-detailbox-list">
+                                        <li class="ttm-pf-data-block">
+                                            <i class="fal fa-user"></i>
+                                            <h5 class="ttm-pf-data-title">Client</h5>
+                                            <div class="ttm-pf-data-details">@Model.ResearchDetail.Client</div>
+                                        </li>
+                                        <li class="ttm-pf-data-block">
+                                            <i class="fal fa-calendar"></i>
+                                            <h5 class="ttm-pf-data-title">Year Date</h5>
+                                            <div class="ttm-pf-data-details">@Model.ResearchDetail.CreatedDate.ToString("MMMM dd,yyyy")</div>
+                                        </li>
+                                        <li class="ttm-pf-data-block">
+                                            <i class="fal fa-map-marker-alt"></i>
+                                            <h5 class="ttm-pf-data-title">Location</h5>
+                                            <div class="ttm-pf-data-details">@Model.ResearchDetail.Location</div>
+                                        </li>
+                                        <li class="ttm-pf-data-block">
+                                            <i class="fal fa-edit"></i>
+                                            <h5 class="ttm-pf-data-title">Category</h5>
+                                            <div class="ttm-pf-data-details">@Model.ResearchDetail.Category.Name</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="ttm-featured-wrapper ttm-portfolio-featured-wrapper">
+                                    <img class="img-fluid" src="~/images/research/@Model.ResearchDetail.DetailImage" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mt-40 mb-20">
+                                    <h4>Project Details</h4>
+                                </div>
+                                <p>@Model.ResearchDetail.Details</p>
+
+                                <div class="mt-25 mb-20">
+                                    <h4>Advantages of Project</h4>
+                                </div>
+                                <p>@Model.ResearchDetail.Advantages</p>
+
+                                <div class="row mt-15 mb-30">
+                                    @foreach (var item in Model.ResearchDetail.ResearchImages)
+                                    {
+                                        <div class="col-lg-3 col-md-3 col-sm-6">
+                                            <div class="single-gallery-image-wrap mt-15">
+                                                <div class="ttm-box-view-overlay">
+                                                    <a class="ttm_prettyphoto single-gallery-block" title="" data-rel="prettyPhoto" href="~/images/@item.Image" tabindex="0">
+                                                        <i class="fa fa-expand"></i>
+                                                    </a>
+                                                    <img src="~/images/research/@item.Image" class="img-fluid" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                                <p>@Model.ResearchDetail.Advantages</p>
+                                <div class="mt-30">
+                                    <div class="ttm-social-share-wrapper">
+                                        <h4 class="m-0 mr-2 res-991-pb-15">Share This Projects : </h4>
+                                        <ul class="social-icons circle">
+                                            @foreach (var item in Model.SiteSocials)
+                                            {
+                                                <li><a href="javascript:void(0)"><i style=" line-height: 2;" class="@item.Icon"></i></a></li>
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row mt-50 mb-60">
+                            <div class="col-lg-12">
+                                <div class="mb-30 mt-30 res-991-mt-0">
+                                    <h4>Related Project</h4>
+                                </div>
+                                <div class="row slick_slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 3, "arrows":false, "autoplay":true, "infinite":true}'>
+                                    @foreach (var item in Model.Researches)
+                                    {
+                                        <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                            <div class="featured-imagebox featured-imagebox-portfolio ttm-portfolio-box-view2">
+                                                <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
+                                                    <div class="featured-thumbnail">
+                                                        <a href="#"> <img class="img-fluid" src="~/images/research/@item.MainImage" alt="image"></a>
+                                                    </div>
+                                                    <div class="featured-iconbox ttm-media-link">
+                                                        <a class="ttm_prettyphoto ttm_image" title="Fitness Guidance to Patient" data-rel="prettyPhoto" href="~/images/research/@item.MainImage">
+                                                            <i style=" line-height: 2;" class="fa fa-expand"></i>
+                                                        </a>
+                                                        <a href="single-style-1.html" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
+                                                    </div>
+                                                    <span class="category">@item.Category.Name</span>
+                                                </div>
+                                                <div class="ttm-box-view-content-inner">
+                                                    <div class="featured-content featured-content-portfolio">
+                                                        <div class="featured-title">
+                                                            <h5><a href="single-style-1.html">@item.Title</a></h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

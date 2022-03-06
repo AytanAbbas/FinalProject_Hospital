@@ -1,0 +1,199 @@
+main {
+    .single-team {
+        padding: 70px 0 50px;
+        .team-member-single {
+            .featured-item {
+                .member-image {
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+                .member-phone {
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 14px;
+                        left: -14px;
+                        border-width: 0 16px 16px 0;
+                        border-style: solid;
+                        display: block;
+                        border-color: #031b4e;
+                        border-top-color: transparent;
+                        border-bottom-color: transparent;
+                    }
+                    h5 {
+                        position: absolute;
+                        bottom: 30px;
+                        left: -15px;
+                        padding: 12px 18px;
+                        font-size: 18px;
+                        line-height: 18px;
+                        margin-bottom: 0;
+                        border-top-right-radius: 30px;
+                        border-bottom-right-radius: 30px;
+                        color: #fff;
+                        background-color: #3368c6;
+                    }
+                }
+            }
+            .team-wrapper {
+                padding: 30px 30px;
+                .team-info {
+                    .team-info-list {
+                        position: relative;
+                        margin: 0;
+                        h2 {
+                            font-size: 30px;
+                            line-height: 30px;
+                            font-weight: 700;
+                            margin-bottom: 12px;
+                            font-family: Poppins, sans-serif;
+                            color: #031b4e;
+                        }
+                        .ttm-team-details-wrapper {
+                            ul {
+                                li {
+                                    position: relative;
+                                    padding: 0px 0 10px 0;
+                                    font-size: 15px;
+                                    line-height: 22px;
+                                    display: block;
+                                    .ttm-team-list-title {
+                                        display: inline-block;
+                                        h5 {
+                                            margin-right: 3px;
+                                            position: relative;
+                                            font-weight: 600;
+                                            font-size: 15px;
+                                            margin-bottom: 0;
+                                            line-height: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .team-social {
+                            ul {
+                                li {
+                                    margin: 0 2px;
+                                    display: inline-block;
+                                    border: none;
+                                    z-index: 1;
+                                    position: relative;
+                                    a {
+                                        border: 1px solid #f2f2f2;
+                                        height: 40px;
+                                        width: 40px;
+                                        line-height: 40px;
+                                        border-radius: 3px;
+                                        text-align: center;
+                                        display: block;
+                                        color: inherit;
+                                        font-size: 16px;
+                                        min-width: 26px;
+                                        position: relative;
+                                        &:hover {
+                                            color: #fff;
+                                            background-color: #031b4e;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .team-biography {
+                position: relative;
+                margin: 0;
+                .biography {
+                    .section-title {
+                        position: relative;
+                        margin-bottom: 26px;
+                        .title-header {
+                            position: relative;
+                            margin-bottom: 17px;
+                            h2 {
+                                color: #031b4e;
+                                font-weight: 700;
+                                font-size: 33px;
+                                line-height: 43px;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                    p {
+                        margin: 0 0 15px;
+                    }
+                }
+            }
+        }
+    }
+    .experience {
+        padding: 70px 0;
+        background-color: #f6faff;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        .experience-layer {
+            opacity: .85;
+            background-color: #f6faff;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            .section-title {
+                position: relative;
+                margin-bottom: 26px;
+                .title-header {
+                    position: relative;
+                    margin-bottom: 17px;
+                    h2 {
+                        color: #031b4e;
+                        font-weight: 700;
+                        font-size: 33px;
+                        line-height: 43px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+    .cooperation {
+        padding: 90px 0;
+        .section-title {
+            position: relative;
+            margin-bottom: 26px;
+            .title-header {
+                position: relative;
+                margin-bottom: 17px;
+                h2 {
+                    color: #031b4e;
+                    font-weight: 700;
+                    font-size: 33px;
+                    line-height: 43px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        p {
+            margin: 0 0 15px;
+        }
+        .wrapper {
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-bottom: 0px;
+            outline: 0;
+            .border-bottom {
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
