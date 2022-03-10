@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace HospitalSite.Areas.admin.Controllers
@@ -73,6 +75,30 @@ namespace HospitalSite.Areas.admin.Controllers
                 return RedirectToAction("Index");
             }
 
+        }
+        public IActionResult SendMail()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult SendMail(string MailText, int? id)
+        {
+            ContactUs contact = _context.ContactUs.FirstOrDefault(p => p.Id == id);
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress("codegroupsp@gmail.com", "Labostica Hospital");
+            message.To.Add(contact.Email);
+            message.Body = MailText;
+            message.IsBodyHtml = true;
+            message.Subject = "Communication";
+
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Host = "smtp.gmail.com";
+            smtpClient.EnableSsl = true;
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new NetworkCredential("codegroupsp@gmail.com", "codegroupsp2021");
+            smtpClient.Send(message);
+
+            return RedirectToAction("Index");
         }
     }
 }

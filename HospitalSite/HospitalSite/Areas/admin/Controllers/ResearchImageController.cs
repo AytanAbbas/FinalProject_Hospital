@@ -118,7 +118,7 @@ namespace HospitalSite.Areas.admin.Controllers
 
                                 model.Image = ImageName2;
 
-                                _context.ResearchImages.Add(model);
+                                _context.ResearchImages.Update(model);
                                 _context.SaveChanges();
                                 return RedirectToAction("Index");
 

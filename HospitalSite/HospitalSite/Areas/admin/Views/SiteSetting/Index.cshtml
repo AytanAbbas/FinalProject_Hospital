@@ -39,7 +39,7 @@
                             <tr>
                                 <th class="align-middle" scope="row">1</th>
                                 <td class="align-middle" style="width: 150px !important; height: 150px !important;">
-                                    <img style="width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/img/logo/@Model.Logo" alt="Alternate Text" />
+                                    <img style="width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/Uploads/@Model.Logo" alt="Alternate Text" />
                                 </td>
                                 <td class="align-middle" style="width: 150px !important; height: 150px !important;">
                                     <img style="width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/img/bg-image/@Model.FooterBgImage" alt="Alternate Text" />
@@ -73,7 +73,7 @@
                                 <td class="align-middle">@Model.Foundername</td>
                                 <td class="align-middle">@Model.Founderposition</td>
                                 <td class="align-middle">@Model.WorkHours</td>
-                                <td class="align-middle">@Model.MapLink</td>
+                                <td class="align-middle">@(Model.MapLink != null && Model.MapLink.Length > 20 ? Model.MapLink.Substring(0, 20) + "..." : Model.MapLink)</td>
                             </tr>
                         </tbody>
                     </table>

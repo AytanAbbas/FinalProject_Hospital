@@ -32,14 +32,9 @@
                     <input class="form-control" asp-for="@Model.Page" placeholder="Page">
                     <span class="text-warning" asp-validation-for="@Model.Page"></span>
                 </div>
-                <div class="col-lg-12 my-3">
-                    <label class="w-100 btn btn-outline-white" asp-for="@Model.ImageFile">Choose Banner Background</label>
-                    <input class="d-none form-control w-50" asp-for="@Model.ImageFile">
-                    <span class="text-warning" asp-validation-for="@Model.ImageFile"></span>
-                </div>
+             
 
                 <input type="hidden" asp-for="@Model.Id" />
-                <input type="hidden" asp-for="@Model.Image" />
                 <button type="submit" style=" position: relative !important; left: -13px !important;" class="btn btn-light px-5 col-lg-6 mt-4 offset-6">Save Changes</button>
             </form>
             </div>

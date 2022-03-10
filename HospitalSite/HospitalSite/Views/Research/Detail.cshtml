@@ -6,25 +6,7 @@
 @model VmResearch
 
 <main>
-    <div class="banner" style="background-image: url(/images/@Model.Banner.Image );">
-        <div class="banner-inner">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <div class="page-title-heading">
-                            <h2 class="title">@Model.Banner.Title</h2>
-                        </div>
-                        <div class="breadcrumb-wrapper">
-                            <span>
-                                <a title="Homepage" href="index.html">Home</a>
-                            </span>
-                            <span>@Model.Banner.SubTitle</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_BannerPartial" model="Model.Banner" />
 
     <section class="single-research pb-25 res-991-pb-0 clearfix">
         <div class="container">
@@ -60,7 +42,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="ttm-featured-wrapper ttm-portfolio-featured-wrapper">
-                                    <img class="img-fluid" src="~/images/research/@Model.ResearchDetail.DetailImage" alt="">
+                                    <img class="img-fluid" src="~/Uploads/@Model.ResearchDetail.DetailImage" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -80,10 +62,10 @@
                                         <div class="col-lg-3 col-md-3 col-sm-6">
                                             <div class="single-gallery-image-wrap mt-15">
                                                 <div class="ttm-box-view-overlay">
-                                                    <a class="ttm_prettyphoto single-gallery-block" title="" data-rel="prettyPhoto" href="~/images/@item.Image" tabindex="0">
-                                                        <i class="fa fa-expand"></i>
+                                                    <a class="ttm_prettyphoto single-gallery-block" title="" data-rel="prettyPhoto" href="~/Uploads/@item.Image" tabindex="0">
+
                                                     </a>
-                                                    <img src="~/images/research/@item.Image" class="img-fluid" alt="">
+                                                    <img src="~/Uploads/@item.Image" class="img-fluid" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +79,7 @@
                                         <ul class="social-icons circle">
                                             @foreach (var item in Model.SiteSocials)
                                             {
-                                                <li><a href="javascript:void(0)"><i style=" line-height: 2;" class="@item.Icon"></i></a></li>
+                                                <li><a><i style=" line-height: 2;" class="@item.Icon"></i></a></li>
                                             }
 
                                         </ul>
@@ -118,13 +100,11 @@
                                             <div class="featured-imagebox featured-imagebox-portfolio ttm-portfolio-box-view2">
                                                 <div class="ttm-box-view-overlay ttm-portfolio-box-view-overlay">
                                                     <div class="featured-thumbnail">
-                                                        <a href="#"> <img class="img-fluid" src="~/images/research/@item.MainImage" alt="image"></a>
+                                                        <a href="#"> <img class="img-fluid" src="~/Uploads/@item.MainImage" alt="image"></a>
                                                     </div>
                                                     <div class="featured-iconbox ttm-media-link">
-                                                        <a class="ttm_prettyphoto ttm_image" title="Fitness Guidance to Patient" data-rel="prettyPhoto" href="~/images/research/@item.MainImage">
-                                                            <i style=" line-height: 2;" class="fa fa-expand"></i>
-                                                        </a>
-                                                        <a href="single-style-1.html" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
+
+                                                        <a asp-controller="Research" asp-action="Detail" asp-route-id="@item.Id" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
                                                     </div>
                                                     <span class="category">@item.Category.Name</span>
                                                 </div>

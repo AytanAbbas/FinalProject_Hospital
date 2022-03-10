@@ -54,7 +54,7 @@
                                         @item.Icon
                                     </td>
                                     <td style="vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
-                                        @item.Link
+                                        @(item.Link  != null && item.Link.Length > 20 ? item.Link.Substring(0, 20) + "..." : item.Link)
                                     </td>
                                     <td style="vertical-align: middle !important;">
                                         <a class="mb-2 w-50 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="admin" asp-controller="SiteSocial" asp-action="Update">Update</a>

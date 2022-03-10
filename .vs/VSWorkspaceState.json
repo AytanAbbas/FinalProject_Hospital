@@ -5,11 +5,9 @@
     "\\HospitalSite\\HospitalSite",
     "\\HospitalSite\\HospitalSite\\Areas",
     "\\HospitalSite\\HospitalSite\\Areas\\admin",
-    "\\HospitalSite\\HospitalSite\\Views",
-    "\\HospitalSite\\HospitalSite\\Views\\Home",
-    "\\HospitalSite\\HospitalSite\\Views\\Shared",
-    "\\HospitalSite\\HospitalSite\\Views\\Team"
+    "\\HospitalSite\\HospitalSite\\Areas\\admin\\Controllers",
+    "\\HospitalSite\\HospitalSite\\Controllers"
   ],
-  "SelectedNode": "\\HospitalSite\\HospitalSite\\Views\\Shared\\_Layout.cshtml",
+  "SelectedNode": "\\HospitalSite\\HospitalSite\\Areas\\admin\\Controllers\\TeamController.cs",
   "PreviewInSolutionExplorer": false
 }

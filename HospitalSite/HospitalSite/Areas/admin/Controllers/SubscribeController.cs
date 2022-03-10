@@ -37,7 +37,7 @@ namespace HospitalSite.Areas.admin.Controllers
             foreach (var item in subscribes)
             {
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("raqsanaabbasova4400@gmail.com", "Labostica");
+                mail.From = new MailAddress("codegroupsp@gmail.com", "Labostica");
                 mail.To.Add(item.Email);
                 mail.Body = MailText;
                 mail.IsBodyHtml = true;
@@ -47,7 +47,7 @@ namespace HospitalSite.Areas.admin.Controllers
                 smtpClient.Host = "smtp.gmail.com";
                 smtpClient.EnableSsl = true;
                 smtpClient.Port = 587;
-                smtpClient.Credentials = new NetworkCredential("raqsanaabbasova4400@gmail.com", "ReqsaneAbbas2003.....");
+                smtpClient.Credentials = new NetworkCredential("codegroupsp@gmail.com", "codegroupsp2021");
                 smtpClient.Send(mail);
             }
 

@@ -5,25 +5,7 @@
 }
 @model VmContact
 <main>
-    <div class="banner" style="background-image: url(images/background/@Model.Banner.Image);">
-        <div class="banner-inner">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <div class="page-title-heading">
-                            <h2 class="title">@Model.Banner.Title</h2>
-                        </div>
-                        <div class="breadcrumb-wrapper">
-                            <span>
-                                <a title="Homepage" href="index.html">Home</a>
-                            </span>
-                            <span>@Model.Banner.SubTitle</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_BannerPartial" model="Model.Banner" />
 
     <section class="contact pt-0 pb-50 clearfix">
         <div class="container">
@@ -101,7 +83,7 @@
                         <ul class="social-icons circle social-hover mt-60">
                             @foreach (var item in Model.SiteSocials)
                             {
-                                <li class="social-facebook"><a class="tooltip-top" target="_blank" href="#" data-tooltip="@item.Name"><i class="@item.Icon" aria-hidden="true" style="line-height: 29px;"></i></a></li>
+                                <li class="social-facebook"><a class="tooltip-top" target="_blank" href="https://@item.Link/" data-tooltip="@item.Name"><i class="@item.Icon" aria-hidden="true" style="line-height: 29px;"></i></a></li>
 
                             }
 
@@ -120,7 +102,7 @@
                                 <h2 class="title">Do not Use This Form To Communicate Personal Data.</h2>
                             </div>
                         </div>
-                     
+
                         <form id="ttm-contactform-2" class="ttm-contactform-2 wrap-form clearfix" method="post" asp-controller="ContactUs" asp-action="Message">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -137,7 +119,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label>
-                                        <span class="text-input"><input name="phone2" type="text" value="" required="" placeholder="Phone Number"></span>
+                                        <span class="text-input"><input name="phone2" type="tel" value="" required="" placeholder="Phone Number"></span>
                                     </label>
                                 </div>
                                 <div class="col-lg-6">

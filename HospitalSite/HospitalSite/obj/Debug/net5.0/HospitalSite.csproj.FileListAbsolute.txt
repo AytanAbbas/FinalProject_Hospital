@@ -37,7 +37,6 @@ C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\ne
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\AboutUs\Index.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\ContactUs\Index.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Faq\Index.cshtml.g.cs
-C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Research\Detail.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Research\Index.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Service\Index.cshtml.g.cs
@@ -255,4 +254,7 @@ C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\ne
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\Account\Roles.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\Account\RoleCreate.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\bin\Debug\net5.0\ICSharpCode.SharpZipLib.dll
-C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Appointment\Index.cshtml.g.cs
+C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\Appointment\Index.cshtml.g.cs
+C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\Message\SendMail.cshtml.g.cs
+C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Views\Shared\_BannerPartial.cshtml.g.cs

@@ -19,9 +19,6 @@ namespace HospitalSite.Models
 
         [MaxLength(50)]
         public string Page { get; set; }
-        [MaxLength(250)]
-        public string Image { get; set; }
-        [NotMapped]
-        public IFormFile ImageFile { get; set; }
+       
     }
 }

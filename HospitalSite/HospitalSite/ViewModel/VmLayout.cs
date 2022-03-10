@@ -14,8 +14,7 @@ namespace HospitalSite.ViewModel
         public List<Research> Researches { get; set; }
         public Appointment Appointment { get; set; }
         public List<Team> Teams { get; set; }
-
-
+        public VmSearch vmSearch { get; set; }
     }
 
 }

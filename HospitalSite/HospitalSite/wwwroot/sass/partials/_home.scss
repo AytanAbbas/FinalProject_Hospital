@@ -213,6 +213,7 @@ header {
     }
 }
 
+
 footer {
     position: relative;
     z-index: 1;
@@ -312,77 +313,12 @@ footer {
     padding: 90px 0 60px;
 }
 
-#strax {
-    background-color: #13c4a1;
-    .title {
-        text-align: center;
-        max-width: 575px;
-        text-transform: capitalize;
-        margin-left: auto;
-        margin-bottom: 60px;
-        margin-right: auto;
-        h2 {
-            font-size: 40px;
-            font-weight: 600;
-            color: #ffffff;
-            font-family: "Poppins", sans-serif;
-            span {
-                color: #ff612f;
-            }
-        }
-    }
-    .owl-item {
-        .item {
-            border-radius: 5px;
-            .content {
-                flex: 0 0 70%;
-                padding-left: 15px;
-                max-width: 70%;
-                p {
-                    line-height: 1.8;
-                    font-size: 15px;
-                    color: #4a6f8a;
-                }
-            }
-        }
-    }
-    .owl-dots {
-        line-height: initial;
-        margin-bottom: 30px;
-        margin-top: 40px;
-        button {
-            display: inline-block;
-            zoom: 1;
-            &:hover {
-                span::before {
-                    transform: scale(1);
-                }
-            }
-            span {
-                width: 14px;
-                height: 14px;
-                margin: 0 3px;
-                background: transparent;
-                transition: 0.5s;
-                border-radius: 50%;
-                border: 1px solid #ffffff;
-                position: relative;
-                &::before {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    border-radius: 50%;
-                    margin: 2px;
-                    transform: scale(0);
-                    transition: 0.5s;
-                    background-color: #ffffff;
-                }
-            }
-        }
-    }
+.testimonial-section {
+    padding: 90px 0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .technology-section {

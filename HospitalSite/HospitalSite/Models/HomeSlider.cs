@@ -16,9 +16,17 @@ namespace HospitalSite.Models
         public string Image { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
+        [MaxLength(250)]
+        public string LeftImage { get; set; }
+        [NotMapped]
+        public IFormFile LeftImageFile { get; set; }
+        [MaxLength(250)]
+        public string RightImage { get; set; }
+        [NotMapped]
+        public IFormFile RightImageFile { get; set; }
         [MaxLength(150)]
         public string Title { get; set; }
-        [MaxLength(200)]
-        public string Subtitle { get; set; }
+        [MaxLength(500)]
+        public string Link { get; set; }
     }
 }

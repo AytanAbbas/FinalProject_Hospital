@@ -1,0 +1,151 @@
+﻿@model List<Appointment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="body d-flex py-lg-3 py-md-2">
+    <div class="container-xxl">
+        <div class="row align-items-center">
+            <div class="border-0 mb-4">
+                <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                    <h3 class="fw-bold py-3 mb-0">Appointments</h3>
+               
+                </div>
+            </div>
+        </div> <!-- Row end  -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="list-view">
+                <div class="row clearfix g-3">
+
+                    @{
+                        if (TempData["MessageError"] != null)
+                        {
+                            <p style="font-size: 20px !important;" class="alert alert-danger">@TempData["MessageError"]</p>
+
+                            TempData["MessageError"] = null;
+                        }
+                    }
+                    <div class="col-lg-8" style="width:100%">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th> Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Note</th>
+                                            <th>AppointmentDate</th>
+                                            <th>CreatedDate</th>
+                                            <th>Doctor</th>
+                                            <th>Status</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int counter2 = 0;
+                                            @foreach (var item in Model)
+                                            {
+                                                counter2++;
+                                        <tr>
+
+                                            <td>
+                                                <span class="fw-bold ms-1">@item.Name</span>
+                                            </td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Phone</td>
+                                            <td>@item.Note</td>
+                                            <td>
+                                                @{
+                                                    var date = (DateTime.Now - item.AppointmentDate);
+                                                    if (date.Days == 0)
+                                                    {
+                                                        if (date.Hours == 0)
+                                                        {
+                                                            if (date.Minutes == 0)
+                                                            {
+                                                                @(date.Seconds) @(" seconds before")
+                                                            }
+                                                            else
+                                                            {
+                                                                @(date.Minutes) @(" minutes before")
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            @(date.Hours) @(" hours before")
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        @(date.Days) @(" days before")
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var appdate = (DateTime.Now - item.AppointmentDate);
+                                                    if (date.Days == 0)
+                                                    {
+                                                        if (date.Hours == 0)
+                                                        {
+                                                            if (date.Minutes == 0)
+                                                            {
+                                                                @(date.Seconds) @(" seconds before")
+                                                            }
+                                                            else
+                                                            {
+                                                                @(date.Minutes) @(" minutes before")
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            @(date.Hours) @(" hours before")
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        @(date.Days) @(" days before")
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @item.DoctorId
+                                            </td>
+                                            <td class="center">
+                                                @if (item.IsActive)
+                                                {
+                                                    <span class="label label-sm btn btn-success">Confirmed </span>
+                                                }
+                                                else
+                                                {
+                                                    <a class="label label-sm label-warning btn btn-warning" asp-area="Admin" asp-controller="Appointment" asp-action="Confirm" asp-route-id="@item.Id" onclick="return confirm('Are you sure?')">Wait </a>
+                                                }
+                                            </td>
+
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                    <a class="ml-3 btn-sm btn btn-danger" style="color:white" asp-route-id="@item.Id" asp-area="Admin" asp-controller="Appointment" asp-action="Delete" onclick="return confirm('Are you sure?')">Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                            }}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Row End -->
+            </div>
+
+        </div>
+    </div>
+</div>

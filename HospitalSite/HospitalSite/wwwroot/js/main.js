@@ -342,7 +342,7 @@
     /* Slick_slider
     /*------------------------------------------------------------------------------*/
     $(".slick_slider").slick({
-        speed: 1000,
+        speed: 500,
         infinite: true,
         arrows: false,
         dots: false,
@@ -509,57 +509,57 @@ $(document).ready(function () {
     });
 
     //Appointment
-    let appointmentButton = $(".myButton");
+    //let appointmentButton = $(".myButton");
 
-    appointmentButton.click(function (e) {
-        e.preventDefault();
+    //appointmentButton.click(function (e) {
+    //    e.preventDefault();
 
-        let name = $("#app-form input[name='name']");
-        let email = $("#app-form input[name='email']");
-        let phone = $("#app-form input[name='phone']");
-        let doctor = $("#app-form select[name='doctor']");
-        let note = $("#app-form input[name='note']");
-        let datetime = $("#app-form input[name='appdatetime']");
+    //    let name = $("#app-form input[name='name']");
+    //    let email = $("#app-form input[name='email']");
+    //    let phone = $("#app-form input[name='phone']");
+    //    let doctor = $("#app-form select[name='doctorId']");
+    //    let note = $("#app-form input[name='note']");
+    //    let datetime = $("#app-form input[name='appdatetime']");
 
-        let success = $("#app-form .alert-success");
-        let warning = $("#app-form .alert-warning");
-        success.css("display", "none");
-        warning.css("display", "none");
+    //    let success = $("#app-form .alert-success");
+    //    let warning = $("#app-form .alert-warning");
+    //    success.css("display", "none");
+    //    warning.css("display", "none");
 
-        $.ajax({
-            url: "Appointment/Message",
-            type: "post",
-            dataType: "json",
-            data: {
-                email: email.val(),
-                name: name.val(),
-                phone: phone.val(),
-                doctor: doctor.val(),
-                note: note.val(),
-                datetime: datetime.val(),
-            },
-            success: function (response) {
-                if (response.status == true) {
-                    success.css("display", "block");
-                    success.text(response.message);
-                } else {
-                    warning.css("display", "block");
-                    warning.text(response.message);
-                }
-            },
-            error: function (error) {
-                console.log(error);
-            },
-            complete: function () {
-                name.val("");
-                email.val("");
-                phone.val("");
-                doctor.val("");
-                note.val("");
-                datetime.val("");
-            }
-        });
-    });
+    //    $.ajax({
+    //        url: "Appointment/Message",
+    //        type: "post",
+    //        dataType: "json",
+    //        data: {
+    //            email: email.val(),
+    //            name: name.val(),
+    //            phone: phone.val(),
+    //            doctor: doctor.val(),
+    //            note: note.val(),
+    //            datetime: datetime.val(),
+    //        },
+    //        success: function (response) {
+    //            if (response.status == true) {
+    //                success.css("display", "block");
+    //                success.text(response.message);
+    //            } else {
+    //                warning.css("display", "block");
+    //                warning.text(response.message);
+    //            }
+    //        },
+    //        error: function (error) {
+    //            console.log(error);
+    //        },
+    //        complete: function () {
+    //            name.val("");
+    //            email.val("");
+    //            phone.val("");
+    //            doctor.val("");
+    //            note.val("");
+    //            datetime.val("");
+    //        }
+    //    });
+    //});
 
 
     //Contact Us Message
@@ -613,11 +613,119 @@ $(document).ready(function () {
     });
 
 
+    //Faq Message
+    let faqButton = $("#faq-button");
+
+    faqButton.click(function (e) {
+        e.preventDefault();
+
+        let name = $("#faq-form input[name='name']");
+        let email = $("#faq-form input[name='email']");
+        let phone = $("#faq-form input[name='phone']");
+        let text = $("#faq-form textarea[name='message']");
+
+        let success = $("#faq-form .alert-success");
+        let warning = $("#faq-form .alert-warning");
+        success.css("display", "none");
+        warning.css("display", "none");
+
+        $.ajax({
+            url: "Faq/Message",
+            type: "post",
+            dataType: "json",
+            data: {
+                email: email.val(),
+                name: name.val(),
+                phone: phone.val(),
+                text: text.val(),
+            },
+            success: function (response) {
+                if (response.status == true) {
+                    success.css("display", "block");
+                    success.text(response.message);
+                } else {
+                    warning.css("display", "block");
+                    warning.text(response.message);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            },
+            complete: function () {
+                name.val("");
+                email.val("");
+                phone.val("");
+                text.val("");
+            }
+        });
+    });
+
+
     $(".sweet").click(function () {
         $(swal("Every Day", "10:00 AM -05:00 PM", )).hide();
     });
 
+
+    //Appointment
+    //let appointmentButton = $(".myButton");
+
+    //appointmentButton.click(function (e) {
+    //    e.preventDefault();
+
+    //    let name = $("#app-form input[name='name']");
+    //    let email = $("#app-form input[name='email']");
+    //    let phone = $("#app-form input[name='phone']");
+    //    let doctor = $("#app-form select[name='doctorId']");
+    //    let note = $("#app-form input[name='note']");
+    //    let datetime = $("#app-form input[name='appdatetime']");
+
+    //    let success = $("#app-form .alert-success");
+    //    let warning = $("#app-form .alert-warning");
+    //    success.css("display", "none");
+    //    warning.css("display", "none");
+
+    //    $.ajax({
+    //        url: "Appointment/Message",
+    //        type: "post",
+    //        dataType: "json",
+    //        data: {
+    //            email: email.val(),
+    //            name: name.val(),
+    //            phone: phone.val(),
+    //            doctor: doctor.val(),
+    //            note: note.val(),
+    //            datetime: datetime.val(),
+    //        },
+    //        success: function (response) {
+    //            if (response.status == true) {
+    //                success.css("display", "block");
+    //                success.text(response.message);
+    //            } else {
+    //                warning.css("display", "block");
+    //                warning.text(response.message);
+    //            }
+    //        },
+    //        error: function (error) {
+    //            console.log(error);
+    //        },
+    //        complete: function () {
+    //            name.val("");
+    //            email.val("");
+    //            phone.val("");
+    //            doctor.val("");
+    //            note.val("");
+    //            datetime.val("");
+    //        }
+    //    });
+    //});
+
   
 
-
 });
+// ===== 05. Popup video
+function popupVideo() {
+    $('.popup-video').magnificPopup({
+        type: 'iframe',
+    });
+}
+

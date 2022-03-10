@@ -16,6 +16,7 @@ namespace HospitalSite.ViewModel
         public List<Achievement> Achievements { get; set; }
         public List<WorkExperience> WorkExperiences { get; set; }
         public List<Skill> Skills { get; set; }
+        public VmSearch vmSearch { get; set; }
         public Banner Banner { get; set; }
         public University University { get; set; }
     }

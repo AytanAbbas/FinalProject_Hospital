@@ -7,25 +7,7 @@
 @model VmTeam
 
 <main>
-    <div class="banner" style="background-image: url(/images/@Model.Banner.Image);">
-        <div class="banner-inner">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <div class="page-title-heading">
-                            <h2 class="title">@Model.Banner.Title</h2>
-                        </div>
-                        <div class="breadcrumb-wrapper">
-                            <span>
-                                <a title="Homepage" href="index.html">Home</a>
-                            </span>
-                            <span>@Model.Banner.SubTitle</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_BannerPartial" model="Model.Banner" />
 
     <section class="single-team clearfix">
         <div class="team-member-single">
@@ -34,10 +16,11 @@
                     <div class="col-lg-5 col-md-5">
                         <div class="featured-item ">
                             <div class="member-image">
-                                <img class="img-fluid" src="~/images/team/@Model.TeamDetail.Image">
+                                <img class="img-fluid" src="~/Uploads/@Model.TeamDetail.Image">
                             </div>
                             <div class="member-phone">
-                                <h5>Call Us: @Model.TeamDetail.Phone
+                                <h5>
+                                    Call Us: @Model.TeamDetail.Phone
                                 </h5>
                             </div>
                         </div>
@@ -85,7 +68,7 @@
                                             <div class="ttm-team-list-value"><a style="color: #3368c6; cursor: pointer; " class="sweet">Schedule</a></div>
                                         </li>
                                     </ul>
-                                  
+
                                     <h2 class="team-info-title">Education & Training</h2>
                                     <ul class="ttm-team-details-list clearfix">
                                         <li>
@@ -120,10 +103,10 @@
                                         @foreach (var item in Model.TeamDetail.TeamSocials)
                                         {
                                             <li class="social-facebook">
-                                                <a class="tooltip-top"><i class="@item.Icon"style=" line-height: 2.5;"></i></a>
+                                                <a class="tooltip-top" href="https://@item.Link/"><i class="@item.Icon" style=" line-height: 2.5;"></i></a>
                                             </li>
                                         }
-                                       
+
                                     </ul>
                                 </div>
                             </div>
@@ -140,9 +123,9 @@
                                     </div>
                                 </div>
                                 <p>
-                                   @Model.TeamDetail.Biography
+                                    @Model.TeamDetail.Biography
                                 </p>
-                              
+
                             </div>
                         </div>
                     </div>
@@ -165,15 +148,15 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="mt-15 pr-40 res-991-pr-0">
                         @*@foreach (var item in Model.TeamDetail.SkillToTeams)
-                        {
-                            <div class="ttm-progress-bar clearfix" data-percent="96%">
-                                <div class="progressbar-title">@item.Skill.Name</div>
-                                <div class="progress-bar-inner">
-                                    <div class="progress-bar progress-bar-color-bar_skincolor"></div>
+                            {
+                                <div class="ttm-progress-bar clearfix" data-percent="96%">
+                                    <div class="progressbar-title">@item.Skill.Name</div>
+                                    <div class="progress-bar-inner">
+                                        <div class="progress-bar progress-bar-color-bar_skincolor"></div>
+                                    </div>
+                                    <div class="progress-bar-percent" data-percentage="96">@item.Skill.Percent</div>
                                 </div>
-                                <div class="progress-bar-percent" data-percentage="96">@item.Skill.Percent</div>
-                            </div>
-                        }*@
+                            }*@
 
                         <div class="ttm-progress-bar" data-percent="88%">
                             <div class="progressbar-title">Sample Preparation</div>
@@ -232,7 +215,7 @@
                                 </div>
                             </div>
                         }
-                    
+
                     </div>
                 </div>
             </div>
@@ -259,7 +242,7 @@
                         {
                             <div class="col-sm-4 wrapper text-center">
                                 <div class="border-bottom pb-10">
-                                    <img class="img-fluid" src="~/images/team/@item.Image" alt="image">
+                                    <img class="img-fluid" src="~/Uploads/@item.Image" alt="image">
                                 </div>
                             </div>
                         }

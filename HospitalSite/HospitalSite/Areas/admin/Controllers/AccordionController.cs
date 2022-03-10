@@ -44,7 +44,7 @@ namespace HospitalSite.Areas.admin.Controllers
                             if (model.ImageFile.Length < 3000000)
                             {
                                 string ImageName2 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
-                                string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", ImageName2);
+                                string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads", ImageName2);
 
                                 using (var Stream = new FileStream(FilePath2, FileMode.Create))
                                 {
@@ -118,7 +118,7 @@ namespace HospitalSite.Areas.admin.Controllers
 
                                 if (!string.IsNullOrEmpty(model.Image))
                                 {
-                                    string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", model.Image);
+                                    string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath,  "Uploads", model.Image);
                                     if (System.IO.File.Exists(oldImagePath))
                                     {
                                         System.IO.File.Delete(oldImagePath);
@@ -127,7 +127,7 @@ namespace HospitalSite.Areas.admin.Controllers
 
 
                                 string ImageName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
-                                string FilePath = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", ImageName);
+                                string FilePath = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads",  ImageName);
 
                                 using (var Stream = new FileStream(FilePath, FileMode.Create))
                                 {
@@ -172,7 +172,7 @@ namespace HospitalSite.Areas.admin.Controllers
                     {
                         if (!string.IsNullOrEmpty(accordion.Image))
                         {
-                            string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", accordion.Image);
+                            string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath,  "Uploads", accordion.Image);
                             if (System.IO.File.Exists(oldImagePath))
                             {
                                 System.IO.File.Delete(oldImagePath);

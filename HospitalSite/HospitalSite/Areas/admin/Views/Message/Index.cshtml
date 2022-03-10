@@ -90,6 +90,7 @@
 
                                                                   <td>
                                                                       <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                                          <a class="btn btn-warning mb-3" asp-area="admin" asp-controller="Message" asp-action="SendMail" asp-route-id="@item.Id">Send Mail</a>
                                                                           <a class="ml-3 btn-sm btn btn-danger" style="color:white" asp-route-id="@item.Id" asp-area="Admin" asp-controller="Message" asp-action="Delete" onclick="return confirm('Are you sure?')">Delete</a>
                                                                       </div>
                                                                   </td>

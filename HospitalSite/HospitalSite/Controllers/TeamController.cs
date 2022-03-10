@@ -20,21 +20,38 @@ namespace HospitalSite.Controllers
         }
         public IActionResult Index( VmSearch search)
         {
+            
+            if (search == null || search.page == null || search.searchData != null)
+            {
+                search.page = 1;
+            }
+            double itemCount = 8;
             VmAllSearch model = new VmAllSearch
             {
                 SiteSocials = _context.SiteSocials.ToList(),
                 Setting = _context.Settings.FirstOrDefault(),
                 Banner = _context.Banners.FirstOrDefault(b => b.Page == "Team"),
-                Teams = _context.Teams.Where(t => (search.searchData != null ? t.Fullname.Contains(search.searchData) : true) ||
+                Teams = _context.Teams  .Include(ts=>ts.TeamSocials)
+                                        .Where(t => (search.searchData != null ? t.Fullname.Contains(search.searchData) : true) ||
                                               (search.searchData != null ? t.Position.Contains(search.searchData) : true)).ToList(),
                 TeamSocials = _context.TeamSocials.ToList(),
                 SkillToTeams = _context.SkillToTeams.ToList(),
                 TeamExperiences = _context.TeamExperiences.ToList(),
                 University = _context.Universities.FirstOrDefault()
+
              
             };
-            model.Search = search;
-
+            int PageCount = (int)Math.Ceiling(Convert.ToDecimal(_context.Teams.Where(t => (search.searchData != null ? t.Fullname.Contains(search.searchData) : true) ||
+                                              (search.searchData != null ? t.Position.Contains(search.searchData) : true)).ToList().Count / itemCount));
+            model.Teams = _context.Teams.Where(t => (search.searchData != null ? t.Fullname.Contains(search.searchData) : true) ||
+                                              (search.searchData != null ? t.Position.Contains(search.searchData) : true)).ToList().Skip(((int)search.page - 1) * (int)itemCount).Take((int)itemCount).ToList();
+            ViewBag.PageCount = PageCount;
+            ViewBag.ItemCount = itemCount;
+            ViewBag.AllCount = _context.Teams.Where(t => (search.searchData != null ? t.Fullname.Contains(search.searchData) : true) ||
+                                              (search.searchData != null ? t.Position.Contains(search.searchData) : true)).ToList().Count;
+            ViewBag.Page = search.page;
+            model.vmSearch = search;
+            
             return View(model);
         }
         public IActionResult Detail(int? Id, VmSearch search)

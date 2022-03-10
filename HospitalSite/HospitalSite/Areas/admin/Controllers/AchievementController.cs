@@ -43,15 +43,15 @@ namespace HospitalSite.Areas.admin.Controllers
                     {
                         if (model.ImageFile.Length < 3000000)
                         {
-                            string ImageName2 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
-                            string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", ImageName2);
+                            string ImageName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
+                            string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads", ImageName);
 
                             using (var Stream = new FileStream(FilePath2, FileMode.Create))
                             {
                                 model.ImageFile.CopyTo(Stream);
                             }
 
-                            model.Image = ImageName2;
+                            model.Image = ImageName;
 
                             _context.Achievements.Add(model);
                             _context.SaveChanges();
@@ -112,54 +112,52 @@ namespace HospitalSite.Areas.admin.Controllers
                 {
                     if (model.ImageFile.ContentType == "image/jpeg" || model.ImageFile.ContentType == "image/png")
                     {
-                        if (model.ImageFile.Length < 3000000)
+                        if (model.ImageFile.Length <= 2097152)
                         {
-
-
+                            //Delete old image
                             if (!string.IsNullOrEmpty(model.Image))
                             {
-                                string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", model.Image);
+                                string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads", model.Image);
                                 if (System.IO.File.Exists(oldImagePath))
                                 {
                                     System.IO.File.Delete(oldImagePath);
                                 }
                             }
 
-
-                            string ImageName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
-                            string FilePath = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", ImageName);
-
-                            using (var Stream = new FileStream(FilePath, FileMode.Create))
+                            //Create new image
+                            string fileName = Guid.NewGuid() + "-" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + model.ImageFile.FileName;
+                            string filePath = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads", fileName);
+                            using (var stream = new FileStream(filePath, FileMode.Create))
                             {
-                                model.ImageFile.CopyTo(Stream);
+                                model.ImageFile.CopyTo(stream);
                             }
 
-                            model.Image = ImageName;
-
+                            model.Image = fileName;
                         }
                         else
                         {
-                            TempData["AchievementError3"] = "The size of the Image file must be less than 3 MB";
+                            ModelState.AddModelError("", "You can upload only less than 2 mb.");
+                           
                             return View(model);
                         }
                     }
                     else
                     {
-                        TempData["AchievementError3"] = "The type of Image file can only be jpeg/jpg or png";
+                        ModelState.AddModelError("", "You can upload only .jpeg, .jpg and .png");
+                       
                         return View(model);
                     }
-
                 }
+
 
                 _context.Achievements.Update(model);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(model);
-            }
 
+               
+
+            }
+          
+            return View(model);
 
         }
 

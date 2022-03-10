@@ -126,15 +126,15 @@ namespace HospitalSite.Areas.admin.Controllers
                             }
 
 
-                            string ImageName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
-                            string FilePath = Path.Combine(_webHostEnviroment.WebRootPath,  "Uploads", ImageName);
+                            string ImageName2 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
+                            string FilePath = Path.Combine(_webHostEnviroment.WebRootPath,  "Uploads", ImageName2);
 
                             using (var Stream = new FileStream(FilePath, FileMode.Create))
                             {
                                 model.ImageFile.CopyTo(Stream);
                             }
 
-                            model.Image = ImageName;
+                            model.Image = ImageName2;
 
                         }
                         else

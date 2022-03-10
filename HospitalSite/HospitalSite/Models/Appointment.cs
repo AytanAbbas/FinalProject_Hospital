@@ -24,6 +24,7 @@ namespace HospitalSite.Models
         public List<Team> Teams { get; set; }
         [MaxLength(200), Required]
         public string Note { get; set; }
+        public bool IsActive { get; set; } = false;
         public DateTime AppointmentDate { get; set; }
         public DateTime CreatedDate { get; set; }
     }

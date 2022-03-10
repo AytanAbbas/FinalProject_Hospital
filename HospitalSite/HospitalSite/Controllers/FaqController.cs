@@ -1,4 +1,5 @@
 ﻿using HospitalSite.Data;
+using HospitalSite.Models;
 using HospitalSite.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -29,5 +30,33 @@ namespace HospitalSite.Controllers
             };
             return View(model);
         }
+
+
+        public IActionResult Message(string name, string email, string phone, string text)
+        {
+            VmMessage message1 = new VmMessage();
+
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phone) && string.IsNullOrEmpty(text))
+            {
+                message1.Status = false;
+                message1.Message = "Please enter the information correctly!";
+                return Json(message1);
+            }
+
+            FaqMessage faqMessage = new FaqMessage();
+            faqMessage.CreatedDate = DateTime.Now;
+            faqMessage.Name = name;
+            faqMessage.Email = email;
+            faqMessage.Phone = phone;
+            faqMessage.Message = text;
+
+            _context.FaqMessages.Add(faqMessage);
+            _context.SaveChanges();
+
+            message1.Status = true;
+            message1.Message = "Thank you for your message!";
+            return Json(message1);
+        }
+
     }
 }

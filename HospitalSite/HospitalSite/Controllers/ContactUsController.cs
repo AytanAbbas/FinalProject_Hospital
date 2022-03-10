@@ -42,7 +42,7 @@ namespace HospitalSite.Controllers
             if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phone) && string.IsNullOrEmpty(text))
             {
                 message1.Status = false;
-                message1.Message = "Məlumatları düzgün daxil etmənizi xahiş edirik!";
+                message1.Message = "Please enter the information correctly!";
                 return Json(message1);
             }
 
@@ -58,7 +58,7 @@ namespace HospitalSite.Controllers
             _context.SaveChanges();
 
             message1.Status = true;
-            message1.Message = "Mesajınız üçün təşəkkür edirik!";
+            message1.Message = "Thank you for your message!";
             return Json(message1);
         }
 

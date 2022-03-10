@@ -11,6 +11,7 @@ namespace HospitalSite.Areas.admin.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
     }

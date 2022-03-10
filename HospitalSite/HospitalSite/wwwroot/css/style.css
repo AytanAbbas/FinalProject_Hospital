@@ -709,7 +709,6 @@ main .introduction-section .introduction-picture img {
   border-style: none;
 }
 main .services-section {
-  background-color: #3368c6;
   text-align: center;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -719,7 +718,6 @@ main .services-section {
 }
 main .services-section .ttm-bg-layer {
   opacity: 0.85;
-  background-color: #3368c6;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -902,6 +900,7 @@ main .team-section .featured-imagebox .ttm-team-box-view-overlay .featured-iconb
         }
     main .team-section .featured-imagebox .ttm-team-box-view-overlay .featured-iconbox .media-block .social-icons li a:hover {
         background-color: #031b4e;
+        cursor: pointer;
     }
 main .team-section .featured-imagebox .ttm-team-box-view-overlay .featured-thumbnail {
   position: relative;
@@ -3842,4 +3841,19 @@ body .ui-tooltip {
 .ui-widget-shadow {
     -webkit-box-shadow: 0 0 5px #666;
     box-shadow: 0 0 5px #666
+}
+.video-section-two::before {
+    position: absolute !important;
+    content: "" !important;
+    height: 100% !important;
+    width: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    background-color: #475763 !important;
+    opacity: 0.75 !important;
+    z-index: -1 !important;
+}
+.video-section-two .video-cont .play-btn:hover {
+    color: #fff !important;
+    background-color: #ff4a17 !important;
 }

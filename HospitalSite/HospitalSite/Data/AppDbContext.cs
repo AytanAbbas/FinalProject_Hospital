@@ -23,6 +23,8 @@ namespace HospitalSite.Data
         public DbSet<BgImage> BgImages { get; set; }
         public DbSet<CustomUser> CustomUsers { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<FaqMessage> FaqMessages { get; set; }
+
         public DbSet<Choose> Chooses { get; set; }
         public DbSet<ChooseUs> ChooseUs { get; set; }
         public DbSet<ContactUs> ContactUs { get; set; }

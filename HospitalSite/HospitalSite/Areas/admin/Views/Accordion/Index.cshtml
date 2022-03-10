@@ -54,7 +54,7 @@
                                         @item.Question
                                     </td>
                                     <td style="vertical-align: middle !important; font-size: 18px !important; font-weight: 500 !important;">
-                                        @item.Description
+                                        @(item.Description != null && item.Description.Length > 20 ? item.Description.Substring(0, 20) + "..." : item.Description)
                                     </td>
                                     <td style="vertical-align: middle !important; ">
                                         <a class="mb-2 w-50 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="admin" asp-controller="Accordion" asp-action="Update">Update</a>

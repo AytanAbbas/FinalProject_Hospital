@@ -60,7 +60,7 @@
                                                                 @item.Title
                                                             </td>
                                                             <td style="width: 25% !important; vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
-                                                                @item.About
+                                                                @(item.About!= null && item.About.Length > 20 ? item.About.Substring(0, 20) + "..." : item.About)
                                                             </td>
                                                             <td style="width: 16% !important; vertical-align: middle !important;">
                                                                 <a data-tippy="Update" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder" class="mr-2 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="Admin" asp-controller="Experience" asp-action="Update"><i class="fal fa-edit"></i></a>

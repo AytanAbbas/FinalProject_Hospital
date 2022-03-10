@@ -1,40 +1,38 @@
-﻿
+﻿@model VmHome
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="slider">
-    <div class="container">
-        <div class="arrows">
-            <img src="./images/arrow-left2.png" alt="" class="left-arrow">
-            <img src="./images/arrow-right2.png" alt="" class="right-arrow">
-        </div>
-        <div class="images">
-            <div class="image active">
-                <img src="./images/slider-mainbg-005.jpg" alt="">
-            </div>
-            <div class="image">
-                <img src="./images/slider-mainbg-006.jpg" alt="">
-            </div>
-            <div class="image">
-                <img src="./images/slider-mainbg-005.jpg" alt="">
+
+<main>
+    <section class="video-section-two bg-img-c" style="background-image: url(/images/background/hospital-background-images-hd-9.jpg); background-repeat: no-repeat; height: 750px; width: 100%; position: relative; background-size: cover; align-items: center; z-index: 2; }">
+        <div class="container">
+            <div class="row align-content-center justify-content-center" style=" position: absolute; top: 30%; ">
+                <div class="col-lg-10">
+                    <div class="video-cont text-center">
+                        <a href="https://youtu.be/3yuvPTCof30" class="play-btn popup-video wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="400ms" style="visibility: visible; background-color: white; padding: 47px; line-height: 150px; margin-bottom: 43px; font-size: 20px; transition: all 0.3s ease-out 0s; border-radius: 50%; animation-duration: 1500ms; animation-delay: 400ms; animation-name: fadeInLeft; "><i class="fas fa-play"></i></a>
+                        <h2 style="    color: white;">
+                            Watch Our Latest Videos For Better Innovative Business
+                        </h2>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-@model VmHome
-<div class="site-main">
-
-
+        <div class="line-shape-one" style=" position: absolute; z-index: -1;">
+            <img src="~/images/background/12.png" alt="Line" style="max-width: 100%; transition: all 0.4s ease-out 0s; ">
+        </div>
+        <div class="line-shape-two" style="right: 0; bottom: 0; position: absolute; z-index: -1; ">
+            <img src="~/images/background/11.png" alt="Line" style="max-width: 100%; transition: all 0.4s ease-out 0s; ">
+        </div>
+    </section>
     <section class="ttm-row introduction-section clearfix">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-xl-6 col-lg-5 col-xs-12">
 
                     <div class="ttm_single_image-wrapper mb-30">
-                        <img style="padding-right: 60px;" class="img-fluid" src="images/about/@Model.Setting.AboutImage" alt="">
+                        <img class="img-fluid" src="images/single-img-three.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7 col-xs-12">
@@ -45,29 +43,57 @@
                                 <h5>About Us</h5>
                                 <h2 class="title">We Employ The Latest Research Technology &amp; Company</h2>
                             </div>
-                            <div class="title-desc">@Model.Setting.About</div>
+                            <div class="title-desc">Our scientists and engineers focus their extreme curiosity on national and global security &amp; health related challenges. Learn more about the Laboratory’s R&amp;D work below segment.</div>
                         </div>
 
                         <div class="featuredbox-number">
-                            @foreach (var item in Model.AboutResearches)
-                            {
-                                <div class="featured-icon-box icon-align-before-content style2">
-                                    <div class="featured-icon">
-                                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
-                                            @item.Number
-                                        </div>
-                                    </div>
-                                    <div class="featured-content">
-                                        <div class="featured-title">
-                                            <h5>@item.Title</h5>
-                                        </div>
-                                        <div class="featured-desc">
-                                            <p>@item.Content</p>
-                                        </div>
+
+                            <div class="featured-icon-box icon-align-before-content style2">
+                                <div class="featured-icon">
+                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
+                                        <i class="ttm-num two ti-info"></i>
                                     </div>
                                 </div>
-                            }
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h5>Central Forensic Science</h5>
+                                    </div>
+                                    <div class="featured-desc">
+                                        <p>Forensic&nbsp;science is a discipline that applies scientific analysis to the justice system, help prove the events of crime</p>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="featured-icon-box icon-align-before-content style2">
+                                <div class="featured-icon">
+                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
+                                        <i class="ttm-num ti-info"></i>
+                                    </div>
+                                </div>
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h5>Clinical &amp; Medical Laboratory</h5>
+                                    </div>
+                                    <div class="featured-desc">
+                                        <p>Conducts lab tests ordered by doctors. Working with laboratory machines as we examine human tissue samples &amp; diagnose</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-icon-box icon-align-before-content style2">
+                                <div class="featured-icon">
+                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
+                                        <i class="ttm-num ti-info"></i>
+                                    </div>
+                                </div>
+                                <div class="featured-content">
+                                    <div class="featured-title">
+                                        <h5>Analytical &amp; Quality Laboratory</h5>
+                                    </div>
+                                    <div class="featured-desc">
+                                        <p>The Various techniques that we are used to identifying the chemical makeup and characteristics of a particular samples</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,8 +159,6 @@
             </div>
         </div>
     </section>
-
-
     <section class="ttm-row features-section ttm-bgcolor-skincolor bg-img4 ttm-bg ttm-bgimage-yes z-index-1 clearfix">
         <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
         <div class="container">
@@ -155,11 +179,7 @@
                                     <p>@item.Description</p>
                                 </div>
                             </div>
-                            <div class="ttm-di_links">
-                                <a href="#" class="di_link">
-                                    <i style=" line-height: 3;" class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
+
                         </div>
                     </div>
 
@@ -191,17 +211,25 @@
                         <div class="row align-items-center no-gutters">
                             <div class="col-xl-5 col-lg-6">
                                 <div class="mt_5 pb-30">
-                                    <h4>@Model.Service.Title</h4>
-                                    <p class="pb-10">@Model.Service.Content</p>
+                                    <h4>We Are Laboratory Technologies</h4>
+                                    <p class="pb-10">Our scientists and engineers focus their extreme curiosity on national &amp; health related challenges. Learn more about the Laboratory’s work below segment.</p>
                                     <ul class="ttm-list ttm-list-style-icon">
-                                        @foreach (var item in Model.ServiceTips.Take(4))
-                                        {
-                                            <li>
-                                                <i class="fa fa-minus"></i>
-                                                <div class="ttm-list-li-content">@item.Name</div>
-                                            </li>
-                                        }
-
+                                        <li style=" text-align: left;">
+                                            <i class="fa fa-minus"></i>
+                                            <div class="ttm-list-li-content">Analytical Balances and Proper Weighing Practices</div>
+                                        </li>
+                                        <li style=" text-align: left;">
+                                            <i class="fa fa-minus"></i>
+                                            <div class="ttm-list-li-content">Solutions for Cannabis Sample Preparation and Analysis</div>
+                                        </li>
+                                        <li style=" text-align: left;">
+                                            <i class="fa fa-minus"></i>
+                                            <div class="ttm-list-li-content">Three Steps to Better Reproducibility in Research Labs</div>
+                                        </li>
+                                        <li style=" text-align: left;">
+                                            <i class="fa fa-minus"></i>
+                                            <div class="ttm-list-li-content">Analytical Balances and Proper Weighing Practices</div>
+                                        </li>
                                     </ul>
                                     <div class="d-flex align-items-center border-top mt-20 mr-10">
                                         <div class="featured-icon-box icon-align-before-content pt-20 pr-25">
@@ -212,7 +240,7 @@
                                             </div>
                                             <div class="featured-content">
                                                 <div class="featured-title">
-                                                    <h5>@Model.Service.Experience</h5>
+                                                    <h5>20 Years</h5>
                                                 </div>
                                                 <div class="featured-desc">
                                                     <p>Of Lab Experience</p>
@@ -226,7 +254,7 @@
                                                         <p>Call To Ask Any Questions</p>
                                                     </div>
                                                     <div class="featured-title">
-                                                        <h5>@Model.Service.Phone</h5>
+                                                        <h5>+123-456-7890</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,9 +348,7 @@
                                                 <a href="#"> <img class="img-fluid" src="images/01.jpg" alt="image"></a>
                                             </div>
                                             <div class="featured-iconbox ttm-media-link">
-                                                <a class="ttm_prettyphoto ttm_image" title="Rehabilitation Center" data-rel="prettyPhoto" href="images/04.jpg">
-                                                    <i style=" line-height: 2;" class="fa fa-expand"></i>
-                                                </a>
+
                                                 <a asp-controller="Research" asp-action="Detail" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
                                             </div>
                                             <div class="ttm-box-view-content-inner">
@@ -343,9 +369,7 @@
                                                 <a href="#"> <img class="img-fluid" src="images/02.jpg" alt="image"></a>
                                             </div>
                                             <div class="featured-iconbox ttm-media-link">
-                                                <a class="ttm_prettyphoto ttm_image" title="Diagnostic Imagine" data-rel="prettyPhoto" href="images/02.jpg">
-                                                    <i style=" line-height: 2;" class="fa fa-expand"></i>
-                                                </a>
+
                                                 <a asp-controller="Research" asp-action="Detail" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
                                             </div>
                                             <div class="ttm-box-view-content-inner">
@@ -366,9 +390,7 @@
                                                 <a href="#"> <img class="img-fluid" src="images/03.jpg" alt="image"></a>
                                             </div>
                                             <div class="featured-iconbox ttm-media-link">
-                                                <a class="ttm_prettyphoto ttm_image" title="Orthodontics Surgery" data-rel="prettyPhoto" href="images/03.jpg">
-                                                    <i style=" line-height: 2;" class="fa fa-expand"></i>
-                                                </a>
+
                                                 <a asp-controller="Research" asp-action="Detail" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
                                             </div>
                                             <div class="ttm-box-view-content-inner">
@@ -389,9 +411,7 @@
                                                 <a href="#"> <img class="img-fluid" src="images/04.jpg" alt="image"></a>
                                             </div>
                                             <div class="featured-iconbox ttm-media-link">
-                                                <a class="ttm_prettyphoto ttm_image" title="Rehabilitation Center" data-rel="prettyPhoto" href="images/04.jpg">
-                                                    <i style=" line-height: 2;" class="fa fa-expand"></i>
-                                                </a>
+
                                                 <a asp-controller="Research" asp-action="Detail" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
                                             </div>
                                             <div class="ttm-box-view-content-inner">
@@ -435,9 +455,7 @@
                                                 <a href="#"> <img class="img-fluid" src="images/06.jpg" alt="image"></a>
                                             </div>
                                             <div class="featured-iconbox ttm-media-link">
-                                                <a class="ttm_prettyphoto ttm_image" title="Dentures / Partial Dentures" data-rel="prettyPhoto" href="images/06.jpg">
-                                                    <i style=" line-height: 2;" class="fa fa-expand"></i>
-                                                </a>
+
                                                 <a asp-controller="Research" asp-action="Detail" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
                                             </div>
                                             <div class="ttm-box-view-content-inner">
@@ -458,10 +476,7 @@
             </div>
         </div>
     </section>
-
-
-
-    <section class="ttm-row testimonial-section ttm-bgcolor-skincolor bg-img6 ttm-bg ttm-bgimage-yes clearfix" style=" padding: 90px 0; background-image: url(images/background/row-bgimage-6.jpg);">
+    <section class="ttm-row testimonial-section ttm-bgcolor-skincolor bg-img6 ttm-bg ttm-bgimage-yes clearfix" style="background-image: url(images/background/row-bgimage-6.jpg);">
         <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
         <div class="container">
             <div class="row">
@@ -475,6 +490,8 @@
                 </div>
             </div>
             <div class="row slick_slider slick-arrows-style1 mb-60 slick-initialized slick-slider" data-slick="{&quot;slidesToShow&quot;: 1, &quot;slidesToScroll&quot;: 1 , &quot;dots&quot;:false, &quot;arrows&quot;:true, &quot;autoplay&quot;:true, &quot;infinite&quot;:true, &quot;centerMode&quot;:false, &quot;responsive&quot;: [{&quot;breakpoint&quot;:500,&quot;settings&quot;:{&quot;slidesToShow&quot;: 1}}]}">
+
+
                 <div class="slick-list draggable">
                     <div class="slick-track" style="opacity: 1; width: 8190px; transform: translate3d(-2340px, 0px, 0px);">
                         <div class="col-lg-7 slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 1170px;" tabindex="-1">
@@ -523,8 +540,8 @@
                                         </ul>
                                     </div>
                                     <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> A great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and
-                                        flexible workplace &amp; great place to work with.
+                                        <h5>“Best Clinic Services Provide”</h5> A great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and flexible
+                                        workplace &amp; great place to work with.
                                     </blockquote>
                                     <div class="testimonial-caption">
                                         <h5>ALexanra May Cruz</h5>
@@ -607,8 +624,8 @@
                                         </ul>
                                     </div>
                                     <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> A great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and
-                                        flexible workplace &amp; great place to work with.
+                                        <h5>“Best Clinic Services Provide”</h5> A great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and flexible
+                                        workplace &amp; great place to work with.
                                     </blockquote>
                                     <div class="testimonial-caption">
                                         <h5>ALexanra May Cruz</h5>
@@ -679,19 +696,15 @@
 
 
             </div>
-        </div>
     </section>
-
 
     <div class="ttm-row client-section-4 mt_70 mb_70 z-index-1 clearfix">
         <div class="container">
-            <!-- row -->
             <div class="row text-center">
                 <div class="col-md-12">
                     <div class="ttm-bg ttm-col-bgcolor-yes ttm-right-span ttm-bgcolor-white pl-25 res-991-ml_15">
                         <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
                         <div class="layer-content">
-                            <!-- slick_slider -->
                             <div class="slick_slider slick-initialized slick-slider" data-slick="{&quot;slidesToShow&quot;: 6, &quot;slidesToScroll&quot;: 1, &quot;arrows&quot;:false, &quot;autoplay&quot;:false, &quot;infinite&quot;:true}">
                                 <div class="slick-list draggable">
                                     <div class="slick-track" style="opacity: 1; width: 3720px; transform: translate3d(-1116px, 0px, 0px);">
@@ -699,10 +712,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-02">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-01.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-02.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-02.png" alt="image">
+                                                        <img src="images/service/client-02.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -711,10 +724,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-03">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-02.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-03.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -723,10 +736,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-04">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-04.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-04.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-04.png" alt="image">
+                                                        <img src="images/service/client-04.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -735,10 +748,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-05">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-05.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-05.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-05.png" alt="image">
+                                                        <img src="images/service/client-05.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -747,10 +760,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-06">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-06.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-06.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-06.png" alt="image">
+                                                        <img src="images/service/client-06.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -759,10 +772,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-07">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img src="images/client/client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -771,10 +784,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-01">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-01.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-01.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-01.png" alt="image">
+                                                        <img src="images/service/client-01.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -783,10 +796,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-02">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-02.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-02.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-02.png" alt="image">
+                                                        <img src="images/service/client-02.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -795,10 +808,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-03">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-03.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-03.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -807,10 +820,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-04">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-04.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-04.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-04.png" alt="image">
+                                                        <img src="images/service/client-04.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -819,10 +832,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-05">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-05.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-05.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-05.png" alt="image">
+                                                        <img src="images/service/client-05.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -831,10 +844,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-06">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-06.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-06.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-06.png" alt="image">
+                                                        <img src="images/service/client-06.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -843,10 +856,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-07">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img src="images/client/client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -855,10 +868,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-01">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-01.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-01.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-01.png" alt="image">
+                                                        <img src="images/service/client-01.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -867,10 +880,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-02">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-02.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-02.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-02.png" alt="image">
+                                                        <img src="images/service/client-02.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -879,10 +892,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-03">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-03.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-03.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -891,10 +904,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-04">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-04.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-04.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-04.png" alt="image">
+                                                        <img src="images/service/client-04.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -903,10 +916,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-05">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-05.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-05.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-05.png" alt="image">
+                                                        <img src="images/service/client-05.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -915,10 +928,10 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-06">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/client/client-06.png" alt="image">
+                                                        <img class="img-fluid" src="images/service/client-06.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-06.png" alt="image">
+                                                        <img src="images/service/client-06.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -927,33 +940,24 @@
                                             <div class="ttm-client-logo-tooltip" data-tooltip="client-07">
                                                 <div class="ttm-client-logo-tooltip-inner">
                                                     <div class="client-thumbnail">
-                                                        <img src="images/client/client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                     <div class="client-thumbnail_hover">
-                                                        <img src="images/client/hover-client-03.png" alt="image">
+                                                        <img src="images/service/client-03.png" alt="image">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-                            </div><!-- ttm-client end -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- row end -->
+            </div>
         </div>
     </div>
-
-
-
-    <section class="ttm-row technology-section bg-img7 bg-layer z-index_1 clearfix" style="background-image: url(images/background/row-bgimage-7.jpg)">
+    <section class="ttm-row technology-section bg-img7 bg-layer z-index_1 clearfix" style="background-image: url(images/background/row-bgimage-7.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 ml-auto">
@@ -1008,13 +1012,4 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
-    <a id="totop" href="#top"><i class="fa fa-angle-up"></i> </a>
-
-</div>
+</main>

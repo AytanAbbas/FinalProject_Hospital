@@ -1,12 +1,54 @@
-﻿
+﻿@inject AppDbContext _context;
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
 }
 
-<!--Start Dashboard Content-->
+@{
+    var sumJanuary = _context.Appointments.Where(a => a.CreatedDate.Month == 1 && a.CreatedDate.Year == 2022).Count();
+    var sumFebruary = _context.Appointments.Where(a => a.CreatedDate.Month == 2 && a.CreatedDate.Year == 2022).Count();
+    var sumMarch = _context.Appointments.Where(a => a.CreatedDate.Month == 3 && a.CreatedDate.Year == 2022).Count();
+    var sumApril = _context.Appointments.Where(a => a.CreatedDate.Month == 4 && a.CreatedDate.Year == 2022).Count();
+    var sumMay = _context.Appointments.Where(a => a.CreatedDate.Month == 5 && a.CreatedDate.Year == 2022).Count();
+    var sumJune = _context.Appointments.Where(a => a.CreatedDate.Month == 6 && a.CreatedDate.Year == 2022).Count();
+    var sumJuly = _context.Appointments.Where(a => a.CreatedDate.Month == 7 && a.CreatedDate.Year == 2022).Count();
+    var sumAugust = _context.Appointments.Where(a => a.CreatedDate.Month == 8 && a.CreatedDate.Year == 2022).Count();
+    var sumSeptember = _context.Appointments.Where(a => a.CreatedDate.Month == 9 && a.CreatedDate.Year == 2022).Count();
+    var sumOctober = _context.Appointments.Where(a => a.CreatedDate.Month == 10 && a.CreatedDate.Year == 2022).Count();
+    var sumNovember = _context.Appointments.Where(a => a.CreatedDate.Month == 11 && a.CreatedDate.Year == 2022).Count();
+    var sumDecember = _context.Appointments.Where(a => a.CreatedDate.Month == 12 && a.CreatedDate.Year == 2022).Count();
+}
 
-<div class="card mt-3">
+<div class="row">
+    <canvas id="bar">
+    </canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+    var barchart = document.getElementById('bar').getContext('2d');
+    var mybarchart = new Chart(barchart, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March','April', 'May','June','July','August', 'September','October','November','December'],
+            datasets: [{
+                label: 'Total Appointments $',
+                data: [@sumJanuary, @sumFebruary, @sumMarch, @sumApril, @sumMay, @sumJune, @sumJuly, @sumAugust, @sumSeptember, @sumOctober, @sumNovember, @sumDecember],
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    })
+</script>
+<!--Start Dashboard Content-->
+<!--<div class="card mt-3">
     <div class="card-content">
         <div class="row row-group m-0">
             <div class="col-12 col-lg-6 col-xl-3 border-light">
@@ -155,9 +197,9 @@
             </div>
         </div>
     </div>
-</div><!--End Row-->
-
-<div class="row">
+</div>-->
+<!--End Row-->
+<!--<div class="row">
     <div class="col-12 col-lg-12">
         <div class="card">
             <div class="card-header">
@@ -273,8 +315,9 @@
             </div>
         </div>
     </div>
-</div><!--End Row-->
+</div>-->
+<!--End Row-->
 <!--End Dashboard Content-->
 <!--start overlay-->
-<div class="overlay toggle-menu"></div>
+<!--<div class="overlay toggle-menu"></div>-->
 <!--end overlay-->

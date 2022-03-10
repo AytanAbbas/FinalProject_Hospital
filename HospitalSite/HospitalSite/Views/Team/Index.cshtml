@@ -5,25 +5,8 @@
 }
 @model VmAllSearch
 <main>
-    <div class="banner" style="background-image: url(images/background/@Model.Banner.Image);">
-        <div class="banner-inner">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <div class="page-title-heading">
-                            <h2 class="title">@Model.Banner.Title</h2>
-                        </div>
-                        <div class="breadcrumb-wrapper">
-                            <span>
-                                <a title="Homepage" href="index.html">Home</a>
-                            </span>
-                            <span>@Model.Banner.SubTitle</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="_BannerPartial" model="Model.Banner" />
+
 
     <section class="team-section clearfix">
         <div class="container">
@@ -39,14 +22,14 @@
                                         <ul class="social-icons list-inline">
                                             @foreach (var social in item.TeamSocials)
                                             {
-                                                <li class="social-facebook"><a><i class="@social.Icon"></i></a></li>
+                                                <li class="social-facebook"><a href="https://@social.Link/"> <i class="@social.Icon"></i></a></li>
                                             }
 
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="images/about/@item.Image" alt="image">
+                                    <img class="img-fluid" src="~/Uploads/@item.Image" alt="image">
                                 </div>
                             </div>
                             <div class="featured-content featured-content-team">
@@ -63,6 +46,32 @@
             </div>
         </div>
     </section>
+    <div class="pagination-team" style=" margin-top: -114px; text-align: center;">
+        <ul style="margin:28px;padding:0;">
+            @if (ViewBag.PageCount != 1)
+            {
+                @if (ViewBag.Page <= 1)
+                { }
+                else
+                {
+                    <li style=" display: inline-block; transform: translateY(-10px); background-color: #3368c6; margin-right: 5px; width: 40px; height: 40px; border: 1px; text-align: center; border-radius: 50%; line-height: 2.5;" class="@(ViewBag.Page==ViewBag.PageCount?"disabled":"")"><a asp-controller="Team" asp-action="Index" asp-route-page="@(1)" style=" color: white; display: flex; height: 100%; text-align: center; justify-content: center;"><i class="fas fa-angle-double-left" style=" transform: translateY(10px);"></i></a></li>
 
+                    <li style=" display: inline-block; transform: translateY(-10px); background-color: #3368c6; margin-right: 5px; width: 40px; height: 40px; border: 1px; text-align: center; border-radius: 50%; line-height: 2.5;" class="@(ViewBag.Page==1?"disabled":"")"><a asp-controller="Team" asp-action="Index" asp-route-page="@(ViewBag.Page-1)" style=" color: white; display: flex; height: 100%; text-align: center; justify-content: center;"><i class="fa fa-angle-left" style=" transform: translateY(10px);"></i></a></li>
+                }
+                @for (int i = 0; i < ViewBag.PageCount; i++)
+                {
+                    <li style=" display: inline-block; background-color: #3368c6; margin-right: 5px; width: 40px; height: 40px; border: 1px ; text-align: center; border-radius: 50%; line-height: 2.5;" class="@(ViewBag.Page==(i+1)?"active-btn-page":"")"><a asp-controller="Team" asp-action="Index" asp-route-page="@(i+1)" style=" color: white;">0@(i+1)</a></li>
+                }
+                @if (ViewBag.Page >= ViewBag.PageCount)
+                { }
+                else
+                {
+                    <li style=" display: inline-block; transform: translateY(-10px); background-color: #3368c6; margin-right: 5px; width: 40px; height: 40px; border: 1px; text-align: center; border-radius: 50%; line-height: 2.5;" class="@(ViewBag.Page==ViewBag.PageCount?"disabled":"")"><a asp-controller="Team" asp-action="Index" asp-route-page="@(ViewBag.Page+1)" style=" color: white; display: flex; height: 100%; text-align: center; justify-content: center;"><i class="fas fa-angle-right" style=" transform: translateY(10px);"></i></a></li>
+                }
+                <li style=" display: inline-block; transform: translateY(-10px); background-color: #3368c6; margin-right: 5px; width: 40px; height: 40px; border: 1px; text-align: center; border-radius: 50%; line-height: 2.5;" class="@(ViewBag.Page==ViewBag.PageCount?"disabled":"")"><a asp-controller="Team" asp-action="Index" asp-route-page="@(ViewBag.PageCount)" style=" color: white; display: flex; height: 100%; text-align: center; justify-content: center;"><i class="fas fa-angle-double-right" style=" transform: translateY(10px);"></i></a></li>
+            }
+
+        </ul>
+    </div>
 </main>
 
