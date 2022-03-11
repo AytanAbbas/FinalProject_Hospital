@@ -43,15 +43,15 @@ namespace HospitalSite.Areas.admin.Controllers
                     {
                         if (model.ArrowImageFile.Length < 3000000)
                         {
-                            string ImageName2 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ArrowImageFile.FileName;
-                            string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath, "img", "image", ImageName2);
+                            string ImageName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ArrowImageFile.FileName;
+                            string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath,  "Uploads", ImageName);
 
                             using (var Stream = new FileStream(FilePath2, FileMode.Create))
                             {
                                 model.ArrowImageFile.CopyTo(Stream);
                             }
 
-                            model.ArrowImage = ImageName2;
+                            model.ArrowImage = ImageName;
 
                             _context.ProcessPlans.Add(model);
                             _context.SaveChanges();
@@ -118,7 +118,7 @@ namespace HospitalSite.Areas.admin.Controllers
 
                             if (!string.IsNullOrEmpty(model.ArrowImage))
                             {
-                                string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", model.ArrowImage);
+                                string oldImagePath = Path.Combine(_webHostEnviroment.WebRootPath,  "Uploads", model.ArrowImage);
                                 if (System.IO.File.Exists(oldImagePath))
                                 {
                                     System.IO.File.Delete(oldImagePath);
@@ -127,7 +127,7 @@ namespace HospitalSite.Areas.admin.Controllers
 
 
                             string ImageName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ArrowImageFile.FileName;
-                            string FilePath = Path.Combine(_webHostEnviroment.WebRootPath, "img", "bg-image", ImageName);
+                            string FilePath = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads", ImageName);
 
                             using (var Stream = new FileStream(FilePath, FileMode.Create))
                             {

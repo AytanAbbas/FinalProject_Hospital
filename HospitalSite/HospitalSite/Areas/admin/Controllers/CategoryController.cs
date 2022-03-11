@@ -31,14 +31,14 @@ namespace HospitalSite.Areas.admin.Controllers
             [HttpPost]
             public IActionResult Create(Category model)
             {
-                if (ModelState.IsValid)
+                if (model.Name != null )
                 {
                     _context.Categories.Add(model);
                     _context.SaveChanges();
                     return RedirectToAction("Index");
                 }
-
-                return View(model);
+            TempData["CategoryError"] = "Id must not be null";
+            return View(model);
             }
 
             public IActionResult Update(int? Id)

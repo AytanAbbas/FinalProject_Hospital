@@ -13,9 +13,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title text-center" style="font-size: 30px !important;">About Service</h4>
-                @{ if (TempData["ServiceAboutError2"] != null)
+                @{ if (TempData["ServiceAboutError"] != null)
                     {
-                        <p style="font-size: 20px !important; padding: 15px !important;" class="alert text-center text-warning">@TempData["ServiceAboutError2"]</p> TempData["ServiceAboutError2"] = null;
+                        <p style="font-size: 20px !important; padding: 15px !important;" class="alert text-center text-warning">@TempData["ServiceAboutError"]</p> TempData["ServiceAboutError"] = null;
                     } }
                 <a class="btn btn-light mb-3 px-5" asp-area="admin" asp-controller="AboutService" asp-action="Create">Add A New About Service</a>
                 <div class="table-responsive">
@@ -44,25 +44,24 @@
                                 foreach (var item in Model)
                                 {
                                     counter++;
-                                    <tr>
-                                        <td style="vertical-align: middle !important; font-size: 18px !important; font-weight: 500 !important;">
-                                            @counter
-                                        </td>
-                                        <td class="py-1" style="vertical-align: middle !important; width: 300px !important; height: 100px !important;">
-                                            <img style="border-radius: unset !important; width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/Uploads/@item.Image " alt="image" />
-                                        </td>
-                                        <td style="vertical-align: middle !important; width: 250px !important; font-size: 18px !important; font-weight: 500 !important;">
-                                            @item.Title
-                                        </td>
-                                        <td style="vertical-align: middle !important; width: 250px !important; font-size: 18px !important; font-weight: 500 !important;">
-                                            @item.About
-                                        </td>                                    
-                                        <td style="vertical-align: middle !important; ">
-                                            <a class="mb-2 w-50 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="admin" asp-controller="AboutService" asp-action="Update">Update</a>
-                                            <br>
-                                            <a class="w-50 btn-sm btn btn-outline-danger" asp-route-id="@item.Id" asp-area="admin" asp-controller="AboutService" asp-action="Delete" onclick="return confirm('Are you sure?')">Delete</a>
-                                        </td>
-                                    </tr>
+                                                        <tr>
+                                                            <td style="vertical-align: middle !important; font-size: 18px !important; font-weight: 500 !important;">
+                                                                @counter
+                                                            </td>
+                                                            <td class="py-1" style="vertical-align: middle !important; width: 300px !important; height: 100px !important;">
+                                                                <img style="border-radius: unset !important; width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/Uploads/@item.Image " alt="image" />
+                                                            </td>
+                                                            <td style="vertical-align: middle !important; width: 250px !important; font-size: 18px !important; font-weight: 500 !important;">
+                                                                @item.Title
+                                                            </td>
+                                                            <td style="vertical-align: middle !important; width: 250px !important; font-size: 18px !important; font-weight: 500 !important;">
+                                                                @(item.About != null && item.About.Length > 20 ? item.About.Substring(0, 20) + "..." : item.About )
+                                                            </td>
+                                                            <td style="width: 16% !important; vertical-align: middle !important;">
+                                                                <a data-tippy="Update" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder" class="mr-2 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="Admin" asp-controller="AboutService" asp-action="Update"><i class="fal fa-edit"></i></a>
+                                                                <a data-tippy="Delete" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder" class="btn-sm btn btn-outline-danger" asp-route-id="@item.Id" asp-area="Admin" asp-controller="AboutService" asp-action="Delete" onclick="return confirm('Are you sure?')"><i class="fal fa-trash-alt"></i></a>
+                                                            </td>
+                                                        </tr>
                                 } }
                         </tbody>
                     </table>

@@ -6,26 +6,35 @@
 
 
 <main>
+   
     <section class="video-section-two bg-img-c" style="background-image: url(/images/background/hospital-background-images-hd-9.jpg); background-repeat: no-repeat; height: 750px; width: 100%; position: relative; background-size: cover; align-items: center; z-index: 2; }">
-        <div class="container">
-            <div class="row align-content-center justify-content-center" style=" position: absolute; top: 30%; ">
-                <div class="col-lg-10">
-                    <div class="video-cont text-center">
-                        <a href="https://youtu.be/3yuvPTCof30" class="play-btn popup-video wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="400ms" style="visibility: visible; background-color: white; padding: 47px; line-height: 150px; margin-bottom: 43px; font-size: 20px; transition: all 0.3s ease-out 0s; border-radius: 50%; animation-duration: 1500ms; animation-delay: 400ms; animation-name: fadeInLeft; "><i class="fas fa-play"></i></a>
-                        <h2 style="    color: white;">
-                            Watch Our Latest Videos For Better Innovative Business
-                        </h2>
+            <div class="container">
+                <div class="row align-content-center justify-content-center" style=" position: absolute; top: 30%; ">
+                    <div class="col-lg-10">
+                        <div class="video-cont text-center">
+                            <a href="https://youtu.be/3yuvPTCof30" class="play-btn popup-video wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="400ms" style="visibility: visible; background-color: white; padding: 47px; line-height: 150px; margin-bottom: 43px; font-size: 20px; transition: all 0.3s ease-out 0s; border-radius: 50%; animation-duration: 1500ms; animation-delay: 400ms; animation-name: fadeInLeft; "><i class="fas fa-play"></i></a> View Video
+                            <h2 style="    color: white;">
+                                Research & Verify A Physics Laboratory
+                            </h2>
+                            <p>
+                                Labostica is uatramodern laboratory services. Delivering newer
+                                <br />
+                                molecules from our sate of the art laboratories
+
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="line-shape-one" style=" position: absolute; z-index: -1;">
-            <img src="~/images/background/12.png" alt="Line" style="max-width: 100%; transition: all 0.4s ease-out 0s; ">
-        </div>
-        <div class="line-shape-two" style="right: 0; bottom: 0; position: absolute; z-index: -1; ">
-            <img src="~/images/background/11.png" alt="Line" style="max-width: 100%; transition: all 0.4s ease-out 0s; ">
-        </div>
-    </section>
+            <div class="line-shape-one" style=" position: absolute; z-index: -1;">
+                <div data-aos="fade-right">
+                    <img src="~/images/background/12.png" alt="Line" style="max-width: 100%; transition: all 0.4s ease-out 0s; ">
+                </div>
+            </div>
+            <div class="line-shape-two" style="right: 0; bottom: 0; position: absolute; z-index: -1; ">
+                <img src="~/images/background/11.png" alt="Line" style="max-width: 100%; transition: all 0.4s ease-out 0s; ">
+            </div>
+        </section>
     <section class="ttm-row introduction-section clearfix">
         <div class="container">
             <div class="row no-gutters">
@@ -47,53 +56,25 @@
                         </div>
 
                         <div class="featuredbox-number">
+                            @foreach (var item in Model.ProcessPlans)
+                            {
+                                <div class="featured-icon-box icon-align-before-content style2">
+                                    <div class="featured-icon">
+                                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
+                                            <i class="ttm-num two ti-info"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title">
+                                            <h5>@item.Title</h5>
+                                        </div>
+                                        <div class="featured-desc">
+                                            <p>@item.Content</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
 
-                            <div class="featured-icon-box icon-align-before-content style2">
-                                <div class="featured-icon">
-                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
-                                        <i class="ttm-num two ti-info"></i>
-                                    </div>
-                                </div>
-                                <div class="featured-content">
-                                    <div class="featured-title">
-                                        <h5>Central Forensic Science</h5>
-                                    </div>
-                                    <div class="featured-desc">
-                                        <p>Forensic&nbsp;science is a discipline that applies scientific analysis to the justice system, help prove the events of crime</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="featured-icon-box icon-align-before-content style2">
-                                <div class="featured-icon">
-                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
-                                        <i class="ttm-num ti-info"></i>
-                                    </div>
-                                </div>
-                                <div class="featured-content">
-                                    <div class="featured-title">
-                                        <h5>Clinical &amp; Medical Laboratory</h5>
-                                    </div>
-                                    <div class="featured-desc">
-                                        <p>Conducts lab tests ordered by doctors. Working with laboratory machines as we examine human tissue samples &amp; diagnose</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="featured-icon-box icon-align-before-content style2">
-                                <div class="featured-icon">
-                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-size-sm ttm-icon_element-style-rounded">
-                                        <i class="ttm-num ti-info"></i>
-                                    </div>
-                                </div>
-                                <div class="featured-content">
-                                    <div class="featured-title">
-                                        <h5>Analytical &amp; Quality Laboratory</h5>
-                                    </div>
-                                    <div class="featured-desc">
-                                        <p>The Various techniques that we are used to identifying the chemical makeup and characteristics of a particular samples</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,8 +170,6 @@
 
         </div>
     </section>
-
-
     <section class="ttm-row services-section ttm-bgcolor-grey bg-img5 ttm-bg ttm-bgimage-yes clearfix" style="background-image:url(images/background/row-bgimage-5.png);">
         <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
         <div class="container">
@@ -199,9 +178,9 @@
                     <div class="section-title with-sep title-style-center_text">
                         <div class="title-header">
                             <h5>OUR SERVICES</h5>
-                            <h2 class="title">Explore Our Main Services</h2>
+                            <h2 class="title">@Model.Service.Title</h2>
                         </div>
-                        <div class="title-desc">Our excellent team is ready to be part of your team to work into the different areas of diagnoses. Scientists helping scientists.</div>
+                        <div class="title-desc">@Model.Service.Content</div>
                     </div>
                 </div>
             </div>
@@ -214,22 +193,14 @@
                                     <h4>We Are Laboratory Technologies</h4>
                                     <p class="pb-10">Our scientists and engineers focus their extreme curiosity on national &amp; health related challenges. Learn more about the Laboratory’s work below segment.</p>
                                     <ul class="ttm-list ttm-list-style-icon">
-                                        <li style=" text-align: left;">
-                                            <i class="fa fa-minus"></i>
-                                            <div class="ttm-list-li-content">Analytical Balances and Proper Weighing Practices</div>
-                                        </li>
-                                        <li style=" text-align: left;">
-                                            <i class="fa fa-minus"></i>
-                                            <div class="ttm-list-li-content">Solutions for Cannabis Sample Preparation and Analysis</div>
-                                        </li>
-                                        <li style=" text-align: left;">
-                                            <i class="fa fa-minus"></i>
-                                            <div class="ttm-list-li-content">Three Steps to Better Reproducibility in Research Labs</div>
-                                        </li>
-                                        <li style=" text-align: left;">
-                                            <i class="fa fa-minus"></i>
-                                            <div class="ttm-list-li-content">Analytical Balances and Proper Weighing Practices</div>
-                                        </li>
+                                        @foreach (var item in Model.ServiceTips.Take(4))
+                                        {
+                                            <li style=" text-align: left;">
+                                                <i class="fa fa-minus"></i>
+                                                <div class="ttm-list-li-content">@item.Name</div>
+                                            </li>
+                                        }
+
                                     </ul>
                                     <div class="d-flex align-items-center border-top mt-20 mr-10">
                                         <div class="featured-icon-box icon-align-before-content pt-20 pr-25">
@@ -240,7 +211,7 @@
                                             </div>
                                             <div class="featured-content">
                                                 <div class="featured-title">
-                                                    <h5>20 Years</h5>
+                                                    <h5>@Model.Service.Experience</h5>
                                                 </div>
                                                 <div class="featured-desc">
                                                     <p>Of Lab Experience</p>
@@ -254,7 +225,7 @@
                                                         <p>Call To Ask Any Questions</p>
                                                     </div>
                                                     <div class="featured-title">
-                                                        <h5>+123-456-7890</h5>
+                                                        <h5>@Model.Service.Phone</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,9 +403,7 @@
                                                 <a href="#"> <img class="img-fluid" src="images/05.jpg" alt="image"></a>
                                             </div>
                                             <div class="featured-iconbox ttm-media-link">
-                                                <a class="ttm_prettyphoto ttm_image" title="Blood Pressure Checkup" data-rel="prettyPhoto" href="images/05.jpg">
-                                                    <i style=" line-height: 2;" class="fa fa-expand"></i>
-                                                </a>
+
                                                 <a asp-controller="Research" asp-action="Detail" class="ttm_link"><i style=" line-height: 2;" class="fal fa-link"></i></a>
                                             </div>
                                             <div class="ttm-box-view-content-inner">
@@ -476,488 +445,37 @@
             </div>
         </div>
     </section>
-    <section class="ttm-row testimonial-section ttm-bgcolor-skincolor bg-img6 ttm-bg ttm-bgimage-yes clearfix" style="background-image: url(images/background/row-bgimage-6.jpg);">
-        <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-8 col-sm-10 m-auto">
-                    <div class="section-title with-sep title-style-center_text">
-                        <div class="title-header">
-                            <h5>TESTIMONALS</h5>
-                            <h2 class="title">“Best Clinic Services Provide”</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row slick_slider slick-arrows-style1 mb-60 slick-initialized slick-slider" data-slick="{&quot;slidesToShow&quot;: 1, &quot;slidesToScroll&quot;: 1 , &quot;dots&quot;:false, &quot;arrows&quot;:true, &quot;autoplay&quot;:true, &quot;infinite&quot;:true, &quot;centerMode&quot;:false, &quot;responsive&quot;: [{&quot;breakpoint&quot;:500,&quot;settings&quot;:{&quot;slidesToShow&quot;: 1}}]}">
 
 
-                <div class="slick-list draggable">
-                    <div class="slick-track" style="opacity: 1; width: 8190px; transform: translate3d(-2340px, 0px, 0px);">
-                        <div class="col-lg-7 slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                            <div class="testimonials style2">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-avatar">
-                                        <div class="testimonial-img">
-                                            <img class="img-fluid" src="images/testimonial01.jpg" alt="testimonial-img">
-                                        </div>
-                                    </div>
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> I always pay attention to detail on anything that I work on to make sure, complete the task successfully.With my skill set, knowledge &amp; work ethics I could be a great
-                                        addition to the team to deliver the best result.
-                                    </blockquote>
-                                    <div class="testimonial-caption">
-                                        <h5>ALexanra May Cruz</h5>
-                                        <label>CEO At Laboratory</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 slick-slide" data-slick-index="0" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                            <div class="testimonials style2">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-avatar">
-                                        <div class="testimonial-img">
-                                            <img class="img-fluid" src="images/testimonial02.jpg" alt="testimonial-img">
-                                        </div>
-                                    </div>
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> A great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and flexible
-                                        workplace &amp; great place to work with.
-                                    </blockquote>
-                                    <div class="testimonial-caption">
-                                        <h5>ALexanra May Cruz</h5>
-                                        <label>CEO At Laboratory</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 1170px;" tabindex="0">
-                            <div class="testimonials style2">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-avatar">
-                                        <div class="testimonial-img">
-                                            <img class="img-fluid" src="images/testimonial02.jpg" alt="testimonial-img">
-                                        </div>
-                                    </div>
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> The laboratory is also an open and flexible workplace &amp; great place to work with. The detail is also important, I like to ensure that I always pay attention to detail
-                                        on anything that I work on.
-                                    </blockquote>
-                                    <div class="testimonial-caption">
-                                        <h5>ALexanra May Cruz</h5>
-                                        <label>CEO At Laboratory</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 slick-slide" data-slick-index="2" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                            <div class="testimonials style2">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-avatar">
-                                        <div class="testimonial-img">
-                                            <img class="img-fluid" src="images/testimonial02.jpg" alt="testimonial-img">
-                                        </div>
-                                    </div>
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> I always pay attention to detail on anything that I work on to make sure, complete the task successfully.With my skill set, knowledge &amp; work ethics I could be a great
-                                        addition to the team to deliver the best result.
-                                    </blockquote>
-                                    <div class="testimonial-caption">
-                                        <h5>ALexanra May Cruz</h5>
-                                        <label>CEO At Laboratory</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                            <div class="testimonials style2">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-avatar">
-                                        <div class="testimonial-img">
-                                            <img class="img-fluid" src="images/testimonial01.jpg" alt="testimonial-img">
-                                        </div>
-                                    </div>
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> A great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and flexible
-                                        workplace &amp; great place to work with.
-                                    </blockquote>
-                                    <div class="testimonial-caption">
-                                        <h5>ALexanra May Cruz</h5>
-                                        <label>CEO At Laboratory</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                            <div class="testimonials style2">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-avatar">
-                                        <div class="testimonial-img">
-                                            <img class="img-fluid" src="images/testimonial02.jpg" alt="testimonial-img">
-                                        </div>
-                                    </div>
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> The laboratory is also an open and flexible workplace &amp; great place to work with. The detail is also important, I like to ensure that I always pay attention to detail
-                                        on anything that I work on.
-                                    </blockquote>
-                                    <div class="testimonial-caption">
-                                        <h5>ALexanra May Cruz</h5>
-                                        <label>CEO At Laboratory</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                            <div class="testimonials style2">
-                                <div class="testimonial-content">
-                                    <div class="testimonial-avatar">
-                                        <div class="testimonial-img">
-                                            <img class="img-fluid" src="images/testimonial02.jpg" alt="testimonial-img">
-                                        </div>
-                                    </div>
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                    <blockquote class="testimonial-text">
-                                        <h5>“Best Clinic Services Provide”</h5> I always pay attention to detail on anything that I work on to make sure, complete the task successfully.With my skill set, knowledge &amp; work ethics I could be a great
-                                        addition to the team to deliver the best result.
-                                    </blockquote>
-                                    <div class="testimonial-caption">
-                                        <h5>ALexanra May Cruz</h5>
-                                        <label>CEO At Laboratory</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-    </section>
-
-    <div class="ttm-row client-section-4 mt_70 mb_70 z-index-1 clearfix">
+    <div class="ttm-row client-section-3 clearfix">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
-                    <div class="ttm-bg ttm-col-bgcolor-yes ttm-right-span ttm-bgcolor-white pl-25 res-991-ml_15">
-                        <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                        <div class="layer-content">
-                            <div class="slick_slider slick-initialized slick-slider" data-slick="{&quot;slidesToShow&quot;: 6, &quot;slidesToScroll&quot;: 1, &quot;arrows&quot;:false, &quot;autoplay&quot;:false, &quot;infinite&quot;:true}">
-                                <div class="slick-list draggable">
-                                    <div class="slick-track" style="opacity: 1; width: 3720px; transform: translate3d(-1116px, 0px, 0px);">
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="-6" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-02">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-02.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-02.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
+                    <div class="slick_slider" data-slick='{"slidesToShow": 6, "slidesToScroll": 1, "arrows":false, "autoplay":true, "infinite":true}'>
+                        @foreach (var item in Model.Partners)
+                        {
+                            <div class="client-box">
+                                <div class="ttm-client-logo-tooltip" data-tooltip="@item.HoverName">
+                                    <div class="ttm-client-logo-tooltip-inner">
+                                        <div class="client-thumbnail">
+                                            <img src="images/service/@item.Name" alt="image">
                                         </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="-5" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-03">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-04">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-04.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-04.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-05">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-05.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-05.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-06">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-06.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-06.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-07">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 186px;" tabindex="0">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-01">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-01.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-01.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 186px;" tabindex="0">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-02">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-02.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-02.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 186px;" tabindex="0">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-03">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 186px;" tabindex="0">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-04">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-04.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-04.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-active" data-slick-index="4" aria-hidden="false" style="width: 186px;" tabindex="0">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-05">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-05.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-05.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-active" data-slick-index="5" aria-hidden="false" style="width: 186px;" tabindex="0">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-06">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-06.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-06.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide" data-slick-index="6" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-07">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-01">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-01.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-01.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-02">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-02.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-02.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-03">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="10" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-04">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-04.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-04.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="11" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-05">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-05.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-05.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="12" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-06">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img class="img-fluid" src="images/service/client-06.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-06.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="client-box slick-slide slick-cloned" data-slick-index="13" aria-hidden="true" style="width: 186px;" tabindex="-1">
-                                            <div class="ttm-client-logo-tooltip" data-tooltip="client-07">
-                                                <div class="ttm-client-logo-tooltip-inner">
-                                                    <div class="client-thumbnail">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                    <div class="client-thumbnail_hover">
-                                                        <img src="images/service/client-03.png" alt="image">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="client-thumbnail_hover">
+                                            <img src="images/service/@item.Name" alt="image">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <section class="ttm-row technology-section bg-img7 bg-layer z-index_1 clearfix" style="background-image: url(images/background/row-bgimage-7.jpg);">
+
+
+    <section class="ttm-row technology-section bg-img7 bg-layer z-index_1 clearfix" style="background-image: url(images/background/@Model.BgImage.AccordionBgImage); margin-bottom: -60px; transform: translateY(-60px); ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 ml-auto">
@@ -971,39 +489,21 @@
                                 </div>
                             </div>
                             <div class="accordion clearfix">
-                                <div class="toggle ttm-style-classic ttm-toggle-title-bgcolor-grey ttm-control-right-true">
-                                    <div class="toggle-title"><a href="#">How should i beleive about your services?</a></div>
-                                    <div class="toggle-content" style="display: none;">
-                                        <div class="d-sm-flex align-items-center">
-                                            <div class="toggle-figure">
-                                                <img src="images/blog-three-100x95.jpg" alt="image">
+                                @foreach (var item in Model.Accordions)
+                                {
+                                    <div class="toggle ttm-style-classic ttm-toggle-title-bgcolor-grey ttm-control-right-true">
+                                        <div class="toggle-title"><a>@item.Question</a></div>
+                                        <div class="toggle-content" style="display: none;">
+                                            <div class="d-sm-flex align-items-center">
+                                                <div class="toggle-figure">
+                                                    <img src="~/Uploads/@item.Image" style=" max-width: 100px;" alt="image">
+                                                </div>
+                                                <div class="toggle-text ml-15 res-575-ml-0 res-575-mt-10">@item.Description</div>
                                             </div>
-                                            <div class="toggle-text ml-15 res-575-ml-0 res-575-mt-10">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="toggle ttm-style-classic ttm-toggle-title-bgcolor-grey ttm-control-right-true">
-                                    <div class="toggle-title"><a href="#">What are laboratory tests?</a></div>
-                                    <div class="toggle-content" style="display: none;">
-                                        <div class="d-sm-flex align-items-center">
-                                            <div class="toggle-figure">
-                                                <img src="images/blog-three-100x95.jpg" alt="image">
-                                            </div>
-                                            <div class="toggle-text ml-15 res-575-ml-0 res-575-mt-10">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="toggle ttm-style-classic ttm-toggle-title-bgcolor-grey ttm-control-right-true">
-                                    <div class="toggle-title"><a href="#" class="active">Who performs the testing on laboratory specimens?</a></div>
-                                    <div class="toggle-content" style="display: block;">
-                                        <div class="d-sm-flex align-items-center">
-                                            <div class="toggle-figure">
-                                                <img src="images/blog-three-100x95.jpg" alt="image">
-                                            </div>
-                                            <div class="toggle-text ml-15 res-575-ml-0 res-575-mt-10">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
+
                             </div>
                         </div>
                     </div>

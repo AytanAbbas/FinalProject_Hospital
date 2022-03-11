@@ -43,15 +43,15 @@ namespace HospitalSite.Areas.admin.Controllers
                         {
                             if (model.ImageFile.Length < 3000000)
                             {
-                                string ImageName2 = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
-                                string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads", ImageName2);
+                                string ImageName = Guid.NewGuid() + "-" + DateTime.Now.ToString("ddMMMMyyyy") + "-" + model.ImageFile.FileName;
+                                string FilePath2 = Path.Combine(_webHostEnviroment.WebRootPath, "Uploads", ImageName);
 
                                 using (var Stream = new FileStream(FilePath2, FileMode.Create))
                                 {
                                     model.ImageFile.CopyTo(Stream);
                                 }
 
-                                model.Image = ImageName2;
+                                model.Image = ImageName;
 
                                 _context.Accordions.Add(model);
                                 _context.SaveChanges();

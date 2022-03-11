@@ -69,6 +69,7 @@
                                         </li>
                                     </ul>
 
+
                                     <h2 class="team-info-title">Education & Training</h2>
                                     <ul class="ttm-team-details-list clearfix">
                                         <li>
@@ -147,17 +148,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="mt-15 pr-40 res-991-pr-0">
-                        @*@foreach (var item in Model.TeamDetail.SkillToTeams)
-                            {
-                                <div class="ttm-progress-bar clearfix" data-percent="96%">
-                                    <div class="progressbar-title">@item.Skill.Name</div>
-                                    <div class="progress-bar-inner">
-                                        <div class="progress-bar progress-bar-color-bar_skincolor"></div>
-                                    </div>
-                                    <div class="progress-bar-percent" data-percentage="96">@item.Skill.Percent</div>
-                                </div>
-                            }*@
-
+                     
                         <div class="ttm-progress-bar" data-percent="88%">
                             <div class="progressbar-title">Sample Preparation</div>
                             <div class="progress-bar-inner">
@@ -242,7 +233,7 @@
                         {
                             <div class="col-sm-4 wrapper text-center">
                                 <div class="border-bottom pb-10">
-                                    <img class="img-fluid" src="~/Uploads/@item.Image" alt="image">
+                                    <img class="img-fluid" src="~/images/team/@item.Image" alt="image">
                                 </div>
                             </div>
                         }

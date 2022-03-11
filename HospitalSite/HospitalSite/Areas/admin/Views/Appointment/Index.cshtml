@@ -38,8 +38,8 @@
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Note</th>
-                                            <th>AppointmentDate</th>
                                             <th>CreatedDate</th>
+                                            <th>AppointmentDate</th>
                                             <th>Doctor</th>
                                             <th>Status</th>
 
@@ -61,61 +61,13 @@
                                             <td>@item.Phone</td>
                                             <td>@item.Note</td>
                                             <td>
-                                                @{
-                                                    var date = (DateTime.Now - item.AppointmentDate);
-                                                    if (date.Days == 0)
-                                                    {
-                                                        if (date.Hours == 0)
-                                                        {
-                                                            if (date.Minutes == 0)
-                                                            {
-                                                                @(date.Seconds) @(" seconds before")
-                                                            }
-                                                            else
-                                                            {
-                                                                @(date.Minutes) @(" minutes before")
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            @(date.Hours) @(" hours before")
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        @(date.Days) @(" days before")
-                                                    }
-                                                }
+                                                @item.CreatedDate
                                             </td>
                                             <td>
-                                                @{
-                                                    var appdate = (DateTime.Now - item.AppointmentDate);
-                                                    if (date.Days == 0)
-                                                    {
-                                                        if (date.Hours == 0)
-                                                        {
-                                                            if (date.Minutes == 0)
-                                                            {
-                                                                @(date.Seconds) @(" seconds before")
-                                                            }
-                                                            else
-                                                            {
-                                                                @(date.Minutes) @(" minutes before")
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            @(date.Hours) @(" hours before")
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        @(date.Days) @(" days before")
-                                                    }
-                                                }
+                                                @item.AppointmentDate
                                             </td>
                                             <td>
-                                                @item.DoctorId
+                                                
                                             </td>
                                             <td class="center">
                                                 @if (item.IsActive)

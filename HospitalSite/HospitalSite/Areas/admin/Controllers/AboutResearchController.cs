@@ -51,13 +51,13 @@ namespace HospitalSite.Areas.admin.Controllers
                 }
                 else
                 {
-                    TempData["AboutResearchError"] = "Such an id does not exist";
+                    TempData["ResearchError"] = "Such an id does not exist";
                     return RedirectToAction("Index");
                 }
             }
             else
             {
-                TempData["AboutResearchError"] = "Id must not be null";
+                TempData["ResearchError"] = "Id must not be null";
                 return RedirectToAction("Index");
             }
 
@@ -91,14 +91,14 @@ namespace HospitalSite.Areas.admin.Controllers
                 }
                 else
                 {
-                    TempData["AboutResearchError"] = "Such an id does not exist";
+                    TempData["ResearchError"] = "Such an id does not exist";
                     return RedirectToAction("Index");
                 }
 
             }
             else
             {
-                TempData["AboutResearchError"] = "Id must not be null";
+                TempData["ResearchError"] = "Id must not be null";
                 return RedirectToAction("Index");
             }
 

@@ -17,8 +17,8 @@ namespace HospitalSite.Models
         public string Email { get; set; }
         [MaxLength(30), Required]
         public string Phone { get; set; }
-        //[MaxLength(30), Required]
-        //public string DoctorName { get; set; }
+        [MaxLength(15)]
+        public string Gender { get; set; }
         [ForeignKey("Teams")]
         public int DoctorId { get; set; }
         public List<Team> Teams { get; set; }

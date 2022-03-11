@@ -3,11 +3,10 @@
     "",
     "\\HospitalSite",
     "\\HospitalSite\\HospitalSite",
-    "\\HospitalSite\\HospitalSite\\Areas",
-    "\\HospitalSite\\HospitalSite\\Areas\\admin",
-    "\\HospitalSite\\HospitalSite\\Areas\\admin\\Controllers",
-    "\\HospitalSite\\HospitalSite\\Controllers"
+    "\\HospitalSite\\HospitalSite\\Views",
+    "\\HospitalSite\\HospitalSite\\Views\\Home",
+    "\\HospitalSite\\HospitalSite\\Views\\Service"
   ],
-  "SelectedNode": "\\HospitalSite\\HospitalSite\\Areas\\admin\\Controllers\\TeamController.cs",
+  "SelectedNode": "\\HospitalSite\\HospitalSite\\Views\\Service\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

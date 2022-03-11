@@ -18,16 +18,14 @@
     <meta name="author" content="https://www.themetechmount.com/" />
     <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1" />
 
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="/path/to/cdn/jquery.slim.min.js"></script>
     <script src="/path/to/image-popup.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="sweetalert2.min.css">
-
+    <link href="~/css/bootstrap-datetimepicker.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/css/animate.css" />
-    @*<link rel="stylesheet" type="text/css" href="~/css/font-awesome.css" />*@
     <link rel="stylesheet" type="text/css" href="~/css/themify-icons.css" />
     <link rel="stylesheet" type="text/css" href="~/css/flaticon.css" />
     <link rel="stylesheet" type="text/css" href="~/css/slick.css">
@@ -102,7 +100,7 @@
                             <div class="col">
                                 <div class="site-navigation d-flex flex-row">
                                     <div class="site-branding mr-auto">
-                                        <a class="home-link"  title="Labostica" >
+                                        <a class="home-link" title="Labostica">
                                             <img id="logo-img" class="img-center" src="~/Uploads/@Model.Setting.Logo" alt="logo-img">
                                         </a>
 
@@ -144,13 +142,13 @@
                                             <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-icon-btn-left ttm-btn-color-grey"> <i class="fa fa-calendar"></i>Appointment</a>
                                             <div id="appointment">
                                                 <h3>Keep in touch!</h3>
-                                                <form class="wrap-form appointment_form clearfix" asp-controller="Appointment" asp-action="Message" method="post" >
+                                                <form class="wrap-form appointment_form clearfix" asp-controller="Appointment" asp-action="Message" method="post">
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <label class="form-group">
                                                                 <span class="text-input">
                                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                                    <input type="text"  placeholder="Your Name" required="required" asp-for="@Model.Appointment.Name" />
+                                                                    <input type="text" placeholder="Your Name" required="required" asp-for="@Model.Appointment.Name" />
                                                                 </span>
                                                             </label>
                                                         </div>
@@ -158,7 +156,7 @@
                                                             <label class="form-group">
                                                                 <span class="text-input">
                                                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                                                    <input  type="tel" placeholder="Phone Number" required="required"asp-for="@Model.Appointment.Phone" />
+                                                                    <input type="tel" placeholder="Phone Number" required="required" asp-for="@Model.Appointment.Phone" />
                                                                 </span>
                                                             </label>
                                                         </div>
@@ -166,7 +164,7 @@
                                                             <label class="form-group">
                                                                 <span class="text-input">
                                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                                    <input  type="email" value="" placeholder="Email" asp-for="@Model.Appointment.Email"/>
+                                                                    <input type="email" value="" placeholder="Email" asp-for="@Model.Appointment.Email" />
                                                                 </span>
                                                             </label>
                                                         </div>
@@ -174,7 +172,7 @@
                                                             <div class="form-group date">
                                                                 <span class="text-input">
                                                                     <i class="fa fa-calendar"></i>
-                                                                    <input type="datetime" data-provide="datepicker" class="datepicker" autocomplete="on" asp-for="@Model.Appointment.AppointmentDate" required="required" />
+                                                                    <input type="datetime" data-provide="datepicker" value="" id="datetimepicker1" autocomplete="on" asp-for="@Model.Appointment.AppointmentDate" required="required" />
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -182,16 +180,8 @@
                                                             <label class="form-group">
                                                                 <span class="text-input">
                                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    <input  type="text" value="" placeholder="Note" asp-for="@Model.Appointment.Note" required="required"/>
-                                                                </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label class="form-group">
-                                                                <span class="text-input">
-                                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
                                                                     <select class="form-control" type="text" style=" text-align: center;" placeholder="Doctor" asp-for="@Model.Appointment.DoctorId" required="required">
-                                                                        <option> Choose Doctors</option>
+                                                                        <option value="">Please choose a doctor</option>
                                                                         @foreach (var item in context.Teams)
                                                                         {
                                                                             <option value="@item.Id">@item.Fullname</option>
@@ -200,16 +190,38 @@
                                                                 </span>
                                                             </label>
                                                         </div>
+                                                        <div class="col-md-4">
+                                                            <label class="form-group">
+                                                                <span class="text-input">
+                                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                    <input type="text" value="" placeholder="Note" asp-for="@Model.Appointment.Note" required="required" />
+                                                                </span>
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <span class="text-input">
+                                                                <p style="border: 1px solid #eaeff5; padding-left: 35px; font-size: 15px; padding: 12px 15px 11px; color: #8a91ac; background-color: #f6faff; ">  <i class="fa fa-pencil" style=" color: #3368c6;" aria-hidden="true"></i> Gender:</p>
+                                                            </span>
+                                                            <div>
+                                                                <input type="radio" asp-for="@Model.Appointment.Gender" value="" id="huey" name="drone"
+                                                                       checked>
+                                                                <label for="huey">Male</label>
+                                                            </div>
+
+                                                            <div>
+                                                                <input type="radio" id="dewey" name="drone" asp-for="@Model.Appointment.Gender" value="dewey">
+                                                                <label for="dewey">Female</label>
+                                                            </div>
+                                                        </div>
 
                                                         <div class="col-md-4">
                                                             <button style=" margin-left: 109%;" class="submit ttm-btn myButton ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor" type="submit">Book appointment</button>
-                                                            <br />
-                                                            <div class="alert alert-success" style="display: none; margin-top:25px"></div>
-                                                            <div class="alert alert-warning" style="display: none; margin-top: 25px"></div>
+
                                                         </div>
                                                     </div>
                                                 </form>
-                    
+
                                             </div>
                                         </div>
 
@@ -360,7 +372,7 @@
                                 <ul id="footer-menu">
                                     <li><a asp-controller="AboutUs" asp-action="Index">About Company</a></li>
                                     <li><a asp-controller="Research" asp-action="Index">Scientific</a></li>
-                                    <li><a asp-controller="Team    " asp-action="Index">Customer Insights</a></li>
+                                    <li><a asp-controller="Team" asp-action="Index">Customer Insights</a></li>
                                     <li><a asp-controller="Research" asp-action="Index">Chemistry</a></li>
                                     <li><a asp-controller="Research" asp-action="Index">Gemological</a></li>
                                     <li><a asp-controller="Appointment" asp-action="Index">Free Consultation</a></li>
@@ -419,6 +431,13 @@
     </div>
 
 
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         setTimeout(function () {
@@ -428,7 +447,6 @@
 
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/tether.min.js"></script>
-    @*<script src="~/js/bootstrap.min.js"></script>*@
     <script src="~/js/jquery.easing.js"></script>
     <script src="~/js/jquery-waypoints.js"></script>
     <script src="~/js/jquery-validate.js"></script>
@@ -439,12 +457,12 @@
     <script src="~/js/imagesloaded.min.js"></script>
     <script src="~/js/jquery-isotope.js"></script>
     <script src="~/js/moment.min.js"></script>
-
+    <script src="~/js/bootstrap-datetimepicker.min.js"></script>
     <script src="https://kit.fontawesome.com/85735e67ff.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="~/js/main.js"></script>
 
- 
+
 
 
 

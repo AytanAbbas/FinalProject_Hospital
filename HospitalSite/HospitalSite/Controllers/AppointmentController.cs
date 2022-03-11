@@ -26,31 +26,7 @@ namespace HospitalSite.Controllers
 
         public IActionResult Message(VmLayout model)
         {
-            //VmMessage message2 = new VmMessage();
-
-            //if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phone) && string.IsNullOrEmpty(note))
-            //{
-            //    message2.Status = false;
-            //    message2.Message = "Məlumatları düzgün daxil etmənizi xahiş edirik!";
-            //    return Json(message2);
-            //}
-
-            //Appointment appointment = new Appointment();
-
-            //appointment.CreatedDate = DateTime.Now;
-            //appointment.AppointmentDate = DateTime.Now;
-            //appointment.Name = name;
-            //appointment.Email = email;
-            //appointment.Phone = phone;
-            //appointment.DoctorId = id;
-            //appointment.Note = note;
-
-            //_context.Appointments.Add(appointment);
-            //_context.SaveChanges();
-
-            //message2.Status = true;
-            //message2.Message = "Mesajınız üçün təşəkkür edirik!";
-            //return Json(message2);
+          
 
             if (ModelState.IsValid)
             {
@@ -60,7 +36,7 @@ namespace HospitalSite.Controllers
                 mail.To.Add(model.Appointment.Email);
                 mail.Body = "<p> Congratulations </p>";
                 mail.IsBodyHtml = true;
-                mail.Subject = "Successfull Reservation";
+                mail.Subject = "Your message has been sent.";
 
                 SmtpClient smtpClient = new SmtpClient();
                 smtpClient.Host = "smtp.gmail.com";
@@ -77,6 +53,7 @@ namespace HospitalSite.Controllers
                 _context.Appointments.Add(model.Appointment);
                 _context.SaveChanges();
                 return RedirectToAction("Index","Home");
+
             }
             ModelState.AddModelError("", "All section is required");
             return View(model);

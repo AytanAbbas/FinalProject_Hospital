@@ -22,6 +22,7 @@ namespace HospitalSite.Models
         public string Position { get; set; }
         [MaxLength(30)]
         public string Phone { get; set; }
+       
         [MaxLength(30)]
         public string CabinNumber { get; set; }
         [Column(TypeName = "ntext"), Required]

@@ -12,9 +12,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title text-center" style="font-size: 30px !important;">Accordion</h4>
-                @{ if (TempData["BannerError2"] != null)
+                @{ if (TempData["AccordionError"] != null)
                                 {
-                    <p style="font-size: 20px !important; padding: 15px !important;" class="alert text-center text-warning">@TempData["BannerError2"]</p> TempData["BannerError2"] = null;
+                    <p style="font-size: 20px !important; padding: 15px !important;" class="alert text-center text-warning">@TempData["AccordionError"]</p> TempData["AccordionError"] = null;
                                 } }
                 <a class="btn btn-light mb-3 px-5" asp-area="admin" asp-controller="Accordion" asp-action="Create">Add A New Accordion</a>
                 <div class="table-responsive">
@@ -48,7 +48,7 @@
                                         @counter
                                     </td>
                                     <td class="py-1" style="vertical-align: middle !important; width: 300px !important; height: 100px !important;">
-                                        <img style="border-radius: unset !important; width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/img/bg-image/@item.Image" alt="image" />
+                                        <img style="border-radius: unset !important; width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/Uploads/@item.Image" alt="image" />
                                     </td>
                                     <td style="vertical-align: middle !important; width: 250px !important; font-size: 18px !important; font-weight: 500 !important;">
                                         @item.Question

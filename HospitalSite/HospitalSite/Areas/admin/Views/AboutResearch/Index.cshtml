@@ -9,11 +9,14 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title text-center mb-4" style="font-size: 30px !important;">FidSection </h4>
-                @{ if (TempData["AboutResearchError"] != null)
+                <h4 class="card-title text-center mb-4" style="font-size: 30px !important;">About Research </h4>
+                @{
+                    if (TempData["ResearchError"] != null)
                     {
-                        <p style="font-size: 20px !important; padding: 15px !important;" class="alert text-center text-warning">@TempData["AboutResearchError"]</p> TempData["AboutResearchError"] = null;
-                    } }
+                        <p style="font-size: 20px !important; padding: 15px !important;" class="alert text-center text-warning">@TempData["ResearchError"]</p> TempData["ResearchError"] = null;
+                    }
+
+                }
 
                 <a class="btn btn-light mb-3 px-5" asp-area="admin" asp-controller="AboutResearch" asp-action="Create">Add </a>
                 <div class="table-responsive">
@@ -55,13 +58,12 @@
                                         <td style="vertical-align: middle !important; font-size: 15px !important; font-weight: 500 !important;">
                                             @(item.Content != null && item.Content.Length > 20 ? item.Content.Substring(0, 20) + "..." : item.Content)
                                         </td>
-                                        <td style="vertical-align: middle !important;">
-                                            <a class="mb-2 w-50 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="admin" asp-controller="AboutResearch" asp-action="Update">Update</a>
-                                            <br>
-                                            <a class="w-50 btn-sm btn btn-outline-danger" asp-route-id="@item.Id" asp-area="admin" asp-controller="AboutResearch" asp-action="Delete" onclick="return confirm('Are you sure?')">Delete</a>
+                                        <td style="width: 16% !important; vertical-align: middle !important;">
+                                            <a data-tippy="Update" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder" class="mr-2 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="Admin" asp-controller="AboutResearch" asp-action="Update"><i class="fal fa-edit"></i></a>
+                                            <a data-tippy="Delete" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder" class="btn-sm btn btn-outline-danger" asp-route-id="@item.Id" asp-area="Admin" asp-controller="AboutResearch" asp-action="Delete" onclick="return confirm('Are you sure?')"><i class="fal fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
- } }
+                                } }
                         </tbody>
                     </table>
                 </div>

@@ -17,6 +17,8 @@ namespace HospitalSite.ViewModel
         public List<ResearchImage> ResearchImages { get; set; }
         public List<Partner> Partners { get; set; }
         public List<Category> Categories { get; set; }
-      
+
+
+
     }
 }

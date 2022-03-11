@@ -64,15 +64,15 @@
                                                                 @item.Number
                                                             </td>
                                                             <td style="vertical-align: middle !important; font-size: 18px !important; font-weight: 500 !important;">
-                                                                @item.Content
+                                                                @(item.Content != null && item.Content.Length > 20 ? item.Content.Substring(0, 20) + "..." : item.Content)
+
                                                             </td>
                                                             <td class="py-1" style="vertical-align: middle !important; width: 300px !important; height: 100px !important;">
-                                                                <img style="border-radius: unset !important; width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/Areas/assets/images/@item.ArrowImage" alt="image" />
+                                                                <img style="border-radius: unset !important; width: 100% !important; height: 100% !important; object-fit: contain !important;" src="~/Uploads/@item.ArrowImage" alt="image" />
                                                             </td>
-                                                            <td style="vertical-align: middle !important; ">
-                                                                <a class="mb-2 w-50 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="admin" asp-controller="ProcessPlan" asp-action="Update">Update</a>
-                                                                <br>
-                                                                <a class="w-50 btn-sm btn btn-outline-danger" asp-route-id="@item.Id" asp-area="admin" asp-controller="ProcessPlan" asp-action="Delete" onclick="return confirm('Are you sure?')">Delete</a>
+                                                            <td style="width: 16% !important; vertical-align: middle !important;">
+                                                                <a data-tippy="Update" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder" class="mr-2 btn-sm btn btn-outline-success" asp-route-id="@item.Id" asp-area="Admin" asp-controller="ProcessPlan" asp-action="Update"><i class="fal fa-edit"></i></a>
+                                                                <a data-tippy="Delete" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder" class="btn-sm btn btn-outline-danger" asp-route-id="@item.Id" asp-area="Admin" asp-controller="ProcessPlan" asp-action="Delete" onclick="return confirm('Are you sure?')"><i class="fal fa-trash-alt"></i></a>
                                                             </td>
                                                         </tr>
                                             }
