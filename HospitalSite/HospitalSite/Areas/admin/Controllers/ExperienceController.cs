@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("admin")]
- 
+    [Authorize(Roles = "SuperAdmin,Moderator")]
     public class ExperienceController : Controller
     {
         private readonly AppDbContext _context;
@@ -30,7 +30,7 @@ namespace HospitalSite.Areas.admin.Controllers
         [HttpPost]
         public IActionResult Create(WorkExperience model)
         {
-            if (ModelState.IsValid)
+            if (model.Title != null && model.Title != null && model.About != null)
             {
                 _context.WorkExperiences.Add(model);
                 _context.SaveChanges();

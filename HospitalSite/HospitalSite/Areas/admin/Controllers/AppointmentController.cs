@@ -8,12 +8,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin,Moderator")]
     public class AppointmentController : Controller
     {
         private readonly AppDbContext _context;

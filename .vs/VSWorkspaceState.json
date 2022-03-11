@@ -3,10 +3,11 @@
     "",
     "\\HospitalSite",
     "\\HospitalSite\\HospitalSite",
-    "\\HospitalSite\\HospitalSite\\Views",
-    "\\HospitalSite\\HospitalSite\\Views\\Home",
-    "\\HospitalSite\\HospitalSite\\Views\\Service"
+    "\\HospitalSite\\HospitalSite\\Areas",
+    "\\HospitalSite\\HospitalSite\\Areas\\admin",
+    "\\HospitalSite\\HospitalSite\\Areas\\admin\\Views",
+    "\\HospitalSite\\HospitalSite\\Areas\\admin\\Views\\Shared"
   ],
-  "SelectedNode": "\\HospitalSite\\HospitalSite\\Views\\Service\\Index.cshtml",
+  "SelectedNode": "\\HospitalSite\\HospitalSite\\Areas\\admin\\Views\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }

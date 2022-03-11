@@ -1,5 +1,6 @@
 ﻿using HospitalSite.Data;
 using HospitalSite.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,8 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
         [Area("Admin")]
-        public class ChooseUsController : Controller
+    [Authorize(Roles = "SuperAdmin,Moderator")]
+    public class ChooseUsController : Controller
         {
 
             private readonly AppDbContext _context;

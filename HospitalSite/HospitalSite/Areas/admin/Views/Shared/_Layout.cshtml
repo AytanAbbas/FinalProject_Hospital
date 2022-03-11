@@ -1,6 +1,5 @@
-﻿@*@inject UserManager<IdentityUser> userManager
+﻿@inject UserManager<IdentityUser> userManager
 @inject SignInManager<IdentityUser> signInManager
-@model VmUser*@
 
 @inject AppDbContext context
 <!doctype html>
@@ -81,7 +80,7 @@
                         </ul>
                     </li>
                     <li class="collapsed">
-                        <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Patient" >
+                        <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Patient">
                             <i class="icofont-blind fs-5"></i> <span>Service</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
                         </a>
                         <!-- Menu: Sub menu ul -->
@@ -109,7 +108,7 @@
                     </li>
 
                     <!-- Menu: Sub menu ul -->
-                 
+
                     <li class="collapsed">
                         <a class="m-link collapsed" data-bs-toggle="collapse" data-bs-target="#menu-Componentsone" href="#" aria-expanded="false"><i class="icofont-ui-calculator"></i> <span>Accounts</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                         <!-- Menu: Sub menu ul -->
@@ -117,22 +116,13 @@
                             <li><a class="ms-link" asp-area="Admin" asp-controller="Account" asp-action="Users"><span>Users</span> </a></li>
                             <li><a class="ms-link" asp-area="Admin" asp-controller="Account" asp-action="Roles"><span>Roles</span> </a></li>
 
-                        </ul>
-                    </li>
-
-
-
-                    <li class="collapsed">
-                        <a class="m-link" data-bs-toggle="collapse" data-bs-target="#app" href="#">
-                            <i class="icofont-code-alt fs-5"></i> <span>App</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
-                        </a>
-                        <!-- Menu: Sub menu ul -->
-                        <ul class="sub-menu collapse" id="app">
-                            <li><a class="ms-link">Calandar</a></li>
 
                         </ul>
                     </li>
 
+
+
+                   
 
 
                 </ul>
@@ -153,48 +143,57 @@
                     <div class="container-xxl">
 
                         <!-- header rightbar icon -->
-                        <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
-                           
-                            <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
-                                <div class="u-info me-2">
-                                    <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold"></span></p>
-                                    <small>Admin Profile</small>
-                                </div>
-                                <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
-                                    <img class="avatar lg rounded-circle img-thumbnail" src="~/Areas/assets/images/mypicture.jpeg" alt="profile">
-                                </a>
-                                <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
-                                    <div class="card border-0 w280">
-                                        <div class="card-body pb-0">
-                                            <div class="d-flex py-1">
-                                                <img class="avatar rounded-circle" src="assets/images/profile_av.png" alt="profile">
-                                                <div class="flex-fill ms-3">
-                                                    <p class="mb-0"><span class="font-weight-bold">@*@userManager.GetUserName(User)*@</span></p>
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+
+                                <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                                    <div class="u-info me-2">
+                                        <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold"></span></p>
+                                        <small>Admin Profile</small>
+                                    </div>
+                                    <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                        <img class="avatar lg rounded-circle img-thumbnail" src="~/images/mypicture.jpeg" alt="profile">
+                                    </a>
+                                    <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                        <div class="card border-0 w280">
+                                            <div class="card-body pb-0">
+                                                <div class="d-flex py-1">
+                                                    <img class="avatar rounded-circle" src="~/images/mypicture.jpeg" alt="profile">
+                                                    <div class="flex-fill ms-3">
+                                                        <p class="mb-0"><span class="font-weight-bold">@userManager.GetUserName(User)</span></p>
+                                                    </div>
                                                 </div>
+
+                                                <div><hr class="dropdown-divider border-dark"></div>
                                             </div>
+                                            <div class="list-group m-2 ">
 
-                                            <div><hr class="dropdown-divider border-dark"></div>
-                                        </div>
-                                        <div class="list-group m-2 ">
-
-                                            <a asp-area="admin" asp-controller="Account" asp-action="Logout" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
-                                            <div><hr class="dropdown-divider border-dark"></div>
-                                            <a asp-area="admin" asp-controller="Account" asp-action="Register" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
+                                                <a asp-area="admin" asp-controller="Account" asp-action="Logout" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
+                                                <div><hr class="dropdown-divider border-dark"></div>
+                                                <a asp-area="admin" asp-controller="Account" asp-action="Register" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="setting ms-2">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
+                                </div>
                             </div>
-                            <div class="setting ms-2">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
-                            </div>
-                        </div>
+                        }
 
                         <!-- menu toggler -->
                         <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
                             <span class="fa fa-bars"></span>
                         </button>
+                        <!-- main menu Search-->
+                        <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                            <div class="input-group flex-nowrap input-group-lg">
+                                <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                                <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
 
-                       
 
                     </div>
                 </nav>
@@ -385,7 +384,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row g-3 mb-3">
+                    <!--<div class="row g-3 mb-3">
                         <div class="col-xl-8 col-lg-12 flex-column">
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
@@ -596,8 +595,8 @@
 
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card bg-secondary position-relative">
+                            </div>-->
+                            @*<div class="card bg-secondary position-relative">
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                     <h6 class="mb-0 fw-bold text-white ">Doctor Of the Month</h6>
                                 </div>
@@ -633,9 +632,9 @@
                                         <i class="icofont-award"></i>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div><!-- .row end -->
+                            </div>*@
+                        <!--</div>
+                    </div>--><!-- .row end -->
                 </div>
             </div>
 

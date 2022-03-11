@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("admin")]
- 
+    [Authorize(Roles = "SuperAdmin,Admin,Moderator")]
+
     public class ServiceTipController : Controller
     {
         private readonly AppDbContext _context;
@@ -30,7 +31,7 @@ namespace HospitalSite.Areas.admin.Controllers
         [HttpPost]
         public IActionResult Create(ServiceTip model)
         {
-            if (ModelState.IsValid)
+            if (model.Name!= null)
             {
                 _context.ServiceTips.Add(model);
                 _context.SaveChanges();

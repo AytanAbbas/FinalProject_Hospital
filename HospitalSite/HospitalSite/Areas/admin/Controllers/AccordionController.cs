@@ -6,12 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 
 namespace HospitalSite.Areas.admin.Controllers
 {
         [Area("Admin")]
-        public class AccordionController : Controller
+    [Authorize(Roles = "SuperAdmin,Moderator")]
+    public class AccordionController : Controller
         {
             private readonly AppDbContext _context;
             private readonly IWebHostEnvironment _webHostEnviroment;

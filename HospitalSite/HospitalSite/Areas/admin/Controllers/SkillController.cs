@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("admin")]
- 
+    [Authorize(Roles = "SuperAdmin,Moderator")]
     public class SkillController : Controller
     {
         private readonly AppDbContext _context;
@@ -30,7 +30,7 @@ namespace HospitalSite.Areas.admin.Controllers
         [HttpPost]
         public IActionResult Create(Skill model)
         {
-            if (ModelState.IsValid)
+            if (model.Name != null && model.Percent != null)
             {
                 _context.Skills.Add(model);
                 _context.SaveChanges();

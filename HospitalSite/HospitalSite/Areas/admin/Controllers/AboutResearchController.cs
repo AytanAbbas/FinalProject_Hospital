@@ -1,5 +1,6 @@
 ﻿using HospitalSite.Data;
 using HospitalSite.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace HospitalSite.Areas.admin.Controllers
 {
 
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin,Moderator")]
     public class AboutResearchController : Controller
     {
         private readonly AppDbContext _context;
@@ -31,7 +33,7 @@ namespace HospitalSite.Areas.admin.Controllers
         [HttpPost]
         public IActionResult Create(AboutResearch model)
         {
-            if (ModelState.IsValid)
+            if (model.Number != null && model.Title != null && model.Content != null)
             {
                 _context.AboutResearches.Add(model);
                 _context.SaveChanges();

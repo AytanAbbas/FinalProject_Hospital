@@ -1,6 +1,7 @@
 ﻿using HospitalSite.Data;
 using HospitalSite.Models;
 using HospitalSite.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles = "SuperAdmin,Moderator")]
     public class ResearchImageController : Controller
     {
         private readonly AppDbContext _context;

@@ -1,5 +1,6 @@
 ﻿using HospitalSite.Data;
 using HospitalSite.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,8 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin,Moderator")]
+
     public class TexnoLabController : Controller
     {
         private readonly AppDbContext _context;

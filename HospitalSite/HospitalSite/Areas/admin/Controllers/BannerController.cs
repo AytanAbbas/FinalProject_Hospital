@@ -5,12 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin,Moderator")]
     public class BannerController : Controller
     {
         private readonly AppDbContext _context;

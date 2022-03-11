@@ -15,7 +15,7 @@ namespace HospitalSite.Areas.admin.Controllers
 {
 
     [Area("Admin")]
- 
+    [Authorize(Roles = "SuperAdmin,Moderator")]
     public class AccountController : Controller
     {
         private readonly AppDbContext _context;
@@ -31,6 +31,9 @@ namespace HospitalSite.Areas.admin.Controllers
             _roleManager = roleManager;
             //test
         }
+
+       
+
         public IActionResult Register()
         {
             return View();
@@ -118,7 +121,7 @@ namespace HospitalSite.Areas.admin.Controllers
             ViewBag.Roles = _context.Roles.ToList();
             return View(user);
         }
-      
+
         [HttpPost]
         public async Task<IActionResult> UpdateUser(CustomUser model)
         {
@@ -144,7 +147,7 @@ namespace HospitalSite.Areas.admin.Controllers
             }
             return View(model);
         }
-      
+
 
         public IActionResult Roles()
         {
@@ -164,8 +167,8 @@ namespace HospitalSite.Areas.admin.Controllers
             await _roleManager.CreateAsync(model);
             return RedirectToAction("Roles");
         }
-
        
+
 
     }
 

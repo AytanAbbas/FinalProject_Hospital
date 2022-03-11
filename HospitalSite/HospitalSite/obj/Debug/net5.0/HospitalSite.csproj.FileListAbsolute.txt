@@ -226,9 +226,6 @@ C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\ne
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\ResearchImage\Index.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\ResearchImage\Create.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\ResearchImage\Update.cshtml.g.cs
-C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\TeamSocial\Index.cshtml.g.cs
-C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\TeamSocial\Create.cshtml.g.cs
-C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\TeamSocial\Update.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\Subscribe\Index.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\obj\Debug\net5.0\Razor\Areas\admin\Views\Subscribe\SendMailAll.cshtml.g.cs
 C:\Users\HP\Desktop\FinalProject-Hospital\HospitalSite\HospitalSite\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
