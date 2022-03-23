@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalSite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220305160242_updatedoctor")]
-    partial class updatedoctor
+    [Migration("20220316215424_EndUpdates")]
+    partial class EndUpdates
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace HospitalSite.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-
+           
 
             modelBuilder.Entity("HospitalSite.Models.AboutResearch", b =>
                 {
@@ -108,6 +108,13 @@ namespace HospitalSite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Gender")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -134,10 +141,6 @@ namespace HospitalSite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Image")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Page")
                         .HasMaxLength(50)
@@ -324,6 +327,40 @@ namespace HospitalSite.Migrations
                     b.ToTable("Faqs");
                 });
 
+            modelBuilder.Entity("HospitalSite.Models.FaqMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("ntext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FaqMessages");
+                });
+
             modelBuilder.Entity("HospitalSite.Models.FidSection", b =>
                 {
                     b.Property<int>("Id")
@@ -383,9 +420,17 @@ namespace HospitalSite.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("Subtitle")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.Property<string>("LeftImage")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Link")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("RightImage")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
                         .HasMaxLength(150)
@@ -1205,190 +1250,187 @@ namespace HospitalSite.Migrations
                     b.HasDiscriminator().HasValue("CustomUser");
                 });
 
-            //  modelBuilder.Entity("AppointmentTeam", b =>
-            {
-        
 
-                modelBuilder.Entity("HospitalSite.Models.Blog", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.CustomUser", null)
-                            .WithMany("Blogs")
-                            .HasForeignKey("CustomUserId");
-                    });
 
-                modelBuilder.Entity("HospitalSite.Models.Research", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Category", "Category")
-                            .WithMany("Researches")
-                            .HasForeignKey("CatId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("HospitalSite.Models.Blog", b =>
+                {
+                    b.HasOne("HospitalSite.Models.CustomUser", null)
+                        .WithMany("Blogs")
+                        .HasForeignKey("CustomUserId");
+                });
 
-                        b.Navigation("Category");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Research", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Category", "Category")
+                        .WithMany("Researches")
+                        .HasForeignKey("CatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("HospitalSite.Models.ResearchImage", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Research", "Research")
-                            .WithMany("ResearchImages")
-                            .HasForeignKey("ResearchId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("Category");
+                });
 
-                        b.Navigation("Research");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.ResearchImage", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Research", "Research")
+                        .WithMany("ResearchImages")
+                        .HasForeignKey("ResearchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("HospitalSite.Models.SkillToTeam", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Skill", "Skill")
-                            .WithMany("SkillToTeams")
-                            .HasForeignKey("SkillId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("Research");
+                });
 
-                        b.HasOne("HospitalSite.Models.Team", "Team")
-                            .WithMany("SkillToTeams")
-                            .HasForeignKey("TeamId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("HospitalSite.Models.SkillToTeam", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Skill", "Skill")
+                        .WithMany("SkillToTeams")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("Skill");
+                    b.HasOne("HospitalSite.Models.Team", "Team")
+                        .WithMany("SkillToTeams")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("Team");
-                    });
+                    b.Navigation("Skill");
 
-                modelBuilder.Entity("HospitalSite.Models.Team", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.University", "University")
-                            .WithMany("Teams")
-                            .HasForeignKey("UniversityId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("Team");
+                });
 
-                        b.Navigation("University");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Team", b =>
+                {
+                    b.HasOne("HospitalSite.Models.University", "University")
+                        .WithMany("Teams")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("HospitalSite.Models.TeamExperience", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Team", "Team")
-                            .WithMany("TeamExperiences")
-                            .HasForeignKey("TeamId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("University");
+                });
 
-                        b.HasOne("HospitalSite.Models.WorkExperience", "WorkExperience")
-                            .WithMany("TeamExperiences")
-                            .HasForeignKey("WorkExperienceId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("HospitalSite.Models.TeamExperience", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Team", "Team")
+                        .WithMany("TeamExperiences")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("Team");
+                    b.HasOne("HospitalSite.Models.WorkExperience", "WorkExperience")
+                        .WithMany("TeamExperiences")
+                        .HasForeignKey("WorkExperienceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("WorkExperience");
-                    });
+                    b.Navigation("Team");
 
-                modelBuilder.Entity("HospitalSite.Models.TeamSocial", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Team", "Team")
-                            .WithMany("TeamSocials")
-                            .HasForeignKey("TeamId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("WorkExperience");
+                });
 
-                        b.Navigation("Team");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.TeamSocial", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Team", "Team")
+                        .WithMany("TeamSocials")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                            .WithMany()
-                            .HasForeignKey("RoleId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+                    b.Navigation("Team");
+                });
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                            .WithMany()
-                            .HasForeignKey("RoleId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Category", b =>
-                    {
-                        b.Navigation("Researches");
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Research", b =>
-                    {
-                        b.Navigation("ResearchImages");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Category", b =>
+                {
+                    b.Navigation("Researches");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Skill", b =>
-                    {
-                        b.Navigation("SkillToTeams");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Research", b =>
+                {
+                    b.Navigation("ResearchImages");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Team", b =>
-                    {
-                        b.Navigation("SkillToTeams");
+            modelBuilder.Entity("HospitalSite.Models.Skill", b =>
+                {
+                    b.Navigation("SkillToTeams");
+                });
 
-                        b.Navigation("TeamExperiences");
+            modelBuilder.Entity("HospitalSite.Models.Team", b =>
+                {
+                    b.Navigation("SkillToTeams");
 
-                        b.Navigation("TeamSocials");
-                    });
+                    b.Navigation("TeamExperiences");
 
-                modelBuilder.Entity("HospitalSite.Models.University", b =>
-                    {
-                        b.Navigation("Teams");
-                    });
+                    b.Navigation("TeamSocials");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.WorkExperience", b =>
-                    {
-                        b.Navigation("TeamExperiences");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.University", b =>
+                {
+                    b.Navigation("Teams");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.CustomUser", b =>
-                    {
-                        b.Navigation("Blogs");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.WorkExperience", b =>
+                {
+                    b.Navigation("TeamExperiences");
+                });
+
+            modelBuilder.Entity("HospitalSite.Models.CustomUser", b =>
+                {
+                    b.Navigation("Blogs");
+                });
 #pragma warning restore 612, 618
-            }
         }
     }
 }

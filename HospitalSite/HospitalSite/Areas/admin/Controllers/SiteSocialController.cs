@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin,Moderator")]
+    [Authorize(Roles = "SuperAdmin,Admin,Moderator")]
     public class SiteSocialController : Controller
     {
        

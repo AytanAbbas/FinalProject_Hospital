@@ -19,9 +19,9 @@ namespace HospitalSite.Models
         public string Phone { get; set; }
         [MaxLength(15)]
         public string Gender { get; set; }
-        [ForeignKey("Teams")]
+        [ForeignKey("Team")]
         public int DoctorId { get; set; }
-        public List<Team> Teams { get; set; }
+        public Team Team { get; set; }
         [MaxLength(200), Required]
         public string Note { get; set; }
         public bool IsActive { get; set; } = false;

@@ -12,7 +12,7 @@ namespace HospitalSite.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(50) , Required]
+        [MaxLength(50) ]
         public string Email { get; set; }
         [NotMapped]
         public string Controller { get; set; }

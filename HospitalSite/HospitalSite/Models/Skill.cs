@@ -12,10 +12,10 @@ namespace HospitalSite.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(150)]
+        [MaxLength(150), Required]
         public string Name { get; set; }
 
-        [MaxLength(30)]
+        [MaxLength(30), Required]
         public string Percent { get; set; }
         public List<SkillToTeam> SkillToTeams { get; set; }
     }

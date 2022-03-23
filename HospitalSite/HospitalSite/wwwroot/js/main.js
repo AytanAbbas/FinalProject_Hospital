@@ -55,6 +55,12 @@
         });
 
     });
+    //$(function () {
+    //    $('#datetimepicker1').datetimepicker({
+    //        daysOfWeekDisabled: [0, 6]
+    //    });
+    //});
+
 
 
     $(function () {
@@ -455,7 +461,7 @@
 
     jQuery('#totop').on("click", function () {      // When arrow is clicked
         jQuery('body,html').animate({
-            scrollTop: 0                       // Scroll to top of body
+            scrollTop: 0                       
         }, 500);
         return false;
     });
@@ -469,7 +475,14 @@
 })(jQuery);
 
 
+
+
 $(document).ready(function () {
+
+   
+
+
+
     //Subscribe
     let submit = $("#submitBtn");
 

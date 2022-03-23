@@ -23,28 +23,31 @@
     <script src="/path/to/image-popup.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+
     <link href="~/css/bootstrap-datetimepicker.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="~/css/themify-icons.css" />
     <link rel="stylesheet" type="text/css" href="~/css/flaticon.css" />
     <link rel="stylesheet" type="text/css" href="~/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="~/css/prettyPhoto.css">
+    @*<link rel="stylesheet" type="text/css" href="~/css/prettyPhoto.css">*@
     <link rel="stylesheet" type="text/css" href="~/css/shortcodes.css" />
 
     <link rel="stylesheet" type="text/css" href="~/css/megamenu.css" />
     <link rel="stylesheet" type="text/css" href="~/css/responsive.css" />
+    <link href="~/css/bootstrap-datetimepicker.css" rel="stylesheet" />
     <link href="~/css/magnific-popup.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/css/main.css" />
-
     <link rel="stylesheet" type="text/css" href="~/css/style.css" />
-    @*<link rel="shortcut icon" href="~/images/vaf" />*@
     <title>Labostica</title>
 
-
-
-
-
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>*@
 
 </head>
 
@@ -170,9 +173,9 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group date">
-                                                                <span class="text-input">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                    <input type="datetime" data-provide="datepicker" value="" id="datetimepicker1" autocomplete="on" asp-for="@Model.Appointment.AppointmentDate" required="required" />
+                                                                <span class="text-input date">
+                                                                    @*<i class="fa fa-calendar"></i>*@
+                                                                    <input type="date" data-provide="datepicker" value="" id="datetimepicker1" autocomplete="on" asp-for="@Model.Appointment.AppointmentDate" required="required" />
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -199,24 +202,10 @@
                                                             </label>
                                                         </div>
 
-                                                        <div class="col-md-4">
-                                                            <span class="text-input">
-                                                                <p style="border: 1px solid #eaeff5; padding-left: 35px; font-size: 15px; padding: 12px 15px 11px; color: #8a91ac; background-color: #f6faff; ">  <i class="fa fa-pencil" style=" color: #3368c6;" aria-hidden="true"></i> Gender:</p>
-                                                            </span>
-                                                            <div>
-                                                                <input type="radio" asp-for="@Model.Appointment.Gender" value="" id="huey" name="drone"
-                                                                       checked>
-                                                                <label for="huey">Male</label>
-                                                            </div>
 
-                                                            <div>
-                                                                <input type="radio" id="dewey" name="drone" asp-for="@Model.Appointment.Gender" value="dewey">
-                                                                <label for="dewey">Female</label>
-                                                            </div>
-                                                        </div>
 
                                                         <div class="col-md-4">
-                                                            <button style=" margin-left: 109%;" class="submit ttm-btn myButton ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor" type="submit">Book appointment</button>
+                                                            <button style=" margin-left: 109%;" class="submit ttm-btn myButton  ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor" type="submit">Book appointment</button>
 
                                                         </div>
                                                     </div>
@@ -432,7 +421,6 @@
 
 
 
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
@@ -446,6 +434,9 @@
     </script>
 
     <script src="~/js/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Magnific Popup core JS file -->
+    <script src="magnific-popup/jquery.magnific-popup.js"></script>
     <script src="~/js/tether.min.js"></script>
     <script src="~/js/jquery.easing.js"></script>
     <script src="~/js/jquery-waypoints.js"></script>
@@ -461,9 +452,10 @@
     <script src="https://kit.fontawesome.com/85735e67ff.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="~/js/main.js"></script>
-
-
-
+    <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+    @*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+    <!-- Magnific Popup core JS file -->
+    @*<script src="magnific-popup/jquery.magnific-popup.js"></script>*@
 
 
 </body>

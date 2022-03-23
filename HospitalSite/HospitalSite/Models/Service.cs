@@ -12,17 +12,17 @@ namespace HospitalSite.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string Image { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
-        [MaxLength(500)]
+        [MaxLength(500), Required]
         public string Content { get; set; }
-        [MaxLength(30)]
+        [MaxLength(30), Required]
         public string Phone { get; set; }
-        [MaxLength(20)]
+        [MaxLength(20), Required]
         public string Experience { get; set; }
-        [MaxLength(80)]
+        [MaxLength(80), Required]
         public string Title { get; set; }
        
 

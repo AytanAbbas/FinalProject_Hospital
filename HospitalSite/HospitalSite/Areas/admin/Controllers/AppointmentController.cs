@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace HospitalSite.Areas.admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin,Moderator")]
+    [Authorize(Roles = "SuperAdmin,Admin,Moderator")]
     public class AppointmentController : Controller
     {
         private readonly AppDbContext _context;
@@ -26,8 +26,8 @@ namespace HospitalSite.Areas.admin.Controllers
         }
         public ActionResult Index()
         {
-            var appointments = _context.Appointments.Include(a => a.Teams).OrderByDescending(a => a.CreatedDate);
-            return View(appointments.ToList());
+            List<Appointment> appointments = _context.Appointments.Include(a => a.Team).OrderByDescending(a => a.CreatedDate).ToList();
+            return View(appointments);
         }
         public IActionResult Delete(int? Id)
         {

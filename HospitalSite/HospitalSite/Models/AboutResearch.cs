@@ -10,11 +10,11 @@ namespace HospitalSite.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(150)]
+        [MaxLength(150), Required]
         public string Title { get; set; }
-        [MaxLength(10)]
+        [MaxLength(10), Required]
         public string Number { get; set; }
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string Content { get; set; }
     }
 }

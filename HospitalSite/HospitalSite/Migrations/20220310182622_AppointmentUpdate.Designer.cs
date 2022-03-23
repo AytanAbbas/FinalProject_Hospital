@@ -21,20 +21,7 @@ namespace HospitalSite.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AppointmentTeam", b =>
-                {
-                    b.Property<int>("AppointmentsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeamsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AppointmentsId", "TeamsId");
-
-                    b.HasIndex("TeamsId");
-
-                    b.ToTable("AppointmentTeam");
-                });
+        
 
             modelBuilder.Entity("HospitalSite.Models.AboutResearch", b =>
                 {
@@ -1263,21 +1250,7 @@ namespace HospitalSite.Migrations
                     b.HasDiscriminator().HasValue("CustomUser");
                 });
 
-            modelBuilder.Entity("AppointmentTeam", b =>
-                {
-                    b.HasOne("HospitalSite.Models.Appointment", null)
-                        .WithMany()
-                        .HasForeignKey("AppointmentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HospitalSite.Models.Team", null)
-                        .WithMany()
-                        .HasForeignKey("TeamsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
+  
             modelBuilder.Entity("HospitalSite.Models.Blog", b =>
                 {
                     b.HasOne("HospitalSite.Models.CustomUser", null)

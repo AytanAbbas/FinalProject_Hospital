@@ -10,7 +10,7 @@ namespace HospitalSite.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(100)]
+        [MaxLength(100), Required]
         public string Name { get; set; }
         public List<Research> Researches { get; set; }
 

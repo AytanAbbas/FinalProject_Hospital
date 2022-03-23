@@ -12,9 +12,9 @@ namespace HospitalSite.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(150)]
+        [MaxLength(150), Required]
         public string Title { get; set; }
-        [MaxLength(150)]
+        [MaxLength(150), Required]
         public string Icon { get; set; }
     }
 }

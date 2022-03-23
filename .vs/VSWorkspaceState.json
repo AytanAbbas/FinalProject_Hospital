@@ -3,11 +3,8 @@
     "",
     "\\HospitalSite",
     "\\HospitalSite\\HospitalSite",
-    "\\HospitalSite\\HospitalSite\\Areas",
-    "\\HospitalSite\\HospitalSite\\Areas\\admin",
-    "\\HospitalSite\\HospitalSite\\Areas\\admin\\Views",
-    "\\HospitalSite\\HospitalSite\\Areas\\admin\\Views\\Shared"
+    "\\HospitalSite\\HospitalSite\\Areas"
   ],
-  "SelectedNode": "\\HospitalSite\\HospitalSite\\Areas\\admin\\Views\\Shared\\_Layout.cshtml",
+  "SelectedNode": "\\HospitalSite\\HospitalSite.sln",
   "PreviewInSolutionExplorer": false
 }

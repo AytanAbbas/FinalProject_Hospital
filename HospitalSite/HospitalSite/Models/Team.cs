@@ -12,28 +12,28 @@ namespace HospitalSite.Models
     {
         [Key]
         public int Id { get; set; }
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string Image { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
-        [MaxLength(50)]
+        [MaxLength(50), Required]
         public string Fullname { get; set; }
-        [MaxLength(50)]
+        [MaxLength(50), Required]
         public string Position { get; set; }
-        [MaxLength(30)]
+        [MaxLength(30), Required]
         public string Phone { get; set; }
        
-        [MaxLength(30)]
+        [MaxLength(30), Required]
         public string CabinNumber { get; set; }
         [Column(TypeName = "ntext"), Required]
         public string Biography { get; set; }
-        [MaxLength(30)]
+        [MaxLength(30), Required]
         public string Experience { get; set; }
-        [MaxLength(50)]
+        [MaxLength(50), Required]
         public string Email { get; set; }
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string Certification { get; set; }
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string PracticeArea { get; set; }
         [ForeignKey("University")]
         public int UniversityId { get; set; }

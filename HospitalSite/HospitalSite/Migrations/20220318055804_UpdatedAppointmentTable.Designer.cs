@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalSite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220305160242_updatedoctor")]
-    partial class updatedoctor
+    [Migration("20220318055804_UpdatedAppointmentTable")]
+    partial class UpdatedAppointmentTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,8 +21,6 @@ namespace HospitalSite.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-
-
             modelBuilder.Entity("HospitalSite.Models.AboutResearch", b =>
                 {
                     b.Property<int>("Id")
@@ -31,14 +29,17 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Number")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -55,14 +56,17 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Question")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -79,6 +83,7 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -108,6 +113,13 @@ namespace HospitalSite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Gender")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -125,6 +137,8 @@ namespace HospitalSite.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DoctorId");
+
                     b.ToTable("Appointments");
                 });
 
@@ -135,19 +149,18 @@ namespace HospitalSite.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Image")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
                     b.Property<string>("Page")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("SubTitle")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -195,10 +208,12 @@ namespace HospitalSite.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Fullname")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -217,6 +232,7 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -233,10 +249,12 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("BgImage")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -253,10 +271,12 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Icon")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -312,16 +332,52 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Answer")
+                        .IsRequired()
                         .HasMaxLength(1500)
                         .HasColumnType("nvarchar(1500)");
 
                     b.Property<string>("Question")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Faqs");
+                });
+
+            modelBuilder.Entity("HospitalSite.Models.FaqMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("ntext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FaqMessages");
                 });
 
             modelBuilder.Entity("HospitalSite.Models.FidSection", b =>
@@ -332,14 +388,17 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Count")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Icon")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -356,14 +415,17 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Icon")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -383,9 +445,17 @@ namespace HospitalSite.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("Subtitle")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.Property<string>("LeftImage")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Link")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("RightImage")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
                         .HasMaxLength(150)
@@ -404,10 +474,12 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("HoverName")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -424,22 +496,27 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ArrowImage")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Icon")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Number")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -463,6 +540,7 @@ namespace HospitalSite.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Client")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -470,6 +548,7 @@ namespace HospitalSite.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DetailImage")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -482,10 +561,12 @@ namespace HospitalSite.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("MainImage")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -504,6 +585,7 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -525,22 +607,27 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Experience")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
@@ -557,14 +644,17 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .IsRequired()
                         .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -581,18 +671,22 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .IsRequired()
                         .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
                     b.Property<string>("FooterTitle")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
@@ -609,6 +703,7 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -625,62 +720,77 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("AboutImage")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Email1")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Email2")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("FooterBgImage")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Foundername")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Founderposition")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Info")
+                        .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("Logo")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("MapLink")
+                        .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("Phone1")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Phone2")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Signature")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("WorkHours")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -697,6 +807,7 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Icon")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -705,6 +816,7 @@ namespace HospitalSite.Migrations
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -721,10 +833,12 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Percent")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -766,7 +880,6 @@ namespace HospitalSite.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -787,38 +900,47 @@ namespace HospitalSite.Migrations
                         .HasColumnType("ntext");
 
                     b.Property<string>("CabinNumber")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Certification")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Experience")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Fullname")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Position")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PracticeArea")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -862,6 +984,7 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Icon")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -870,6 +993,7 @@ namespace HospitalSite.Migrations
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -891,22 +1015,27 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Fullname")
+                        .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Profession")
+                        .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Quote")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -945,14 +1074,17 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Icon")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -969,10 +1101,12 @@ namespace HospitalSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("BgImage")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -1191,204 +1325,215 @@ namespace HospitalSite.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Surname")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.HasDiscriminator().HasValue("CustomUser");
                 });
 
-            //  modelBuilder.Entity("AppointmentTeam", b =>
-            {
-        
+            modelBuilder.Entity("HospitalSite.Models.Appointment", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Team", "Team")
+                        .WithMany("Appointments")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("HospitalSite.Models.Blog", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.CustomUser", null)
-                            .WithMany("Blogs")
-                            .HasForeignKey("CustomUserId");
-                    });
+                    b.Navigation("Team");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Research", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Category", "Category")
-                            .WithMany("Researches")
-                            .HasForeignKey("CatId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("HospitalSite.Models.Blog", b =>
+                {
+                    b.HasOne("HospitalSite.Models.CustomUser", null)
+                        .WithMany("Blogs")
+                        .HasForeignKey("CustomUserId");
+                });
 
-                        b.Navigation("Category");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Research", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Category", "Category")
+                        .WithMany("Researches")
+                        .HasForeignKey("CatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("HospitalSite.Models.ResearchImage", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Research", "Research")
-                            .WithMany("ResearchImages")
-                            .HasForeignKey("ResearchId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("Category");
+                });
 
-                        b.Navigation("Research");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.ResearchImage", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Research", "Research")
+                        .WithMany("ResearchImages")
+                        .HasForeignKey("ResearchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("HospitalSite.Models.SkillToTeam", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Skill", "Skill")
-                            .WithMany("SkillToTeams")
-                            .HasForeignKey("SkillId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("Research");
+                });
 
-                        b.HasOne("HospitalSite.Models.Team", "Team")
-                            .WithMany("SkillToTeams")
-                            .HasForeignKey("TeamId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("HospitalSite.Models.SkillToTeam", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Skill", "Skill")
+                        .WithMany("SkillToTeams")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("Skill");
+                    b.HasOne("HospitalSite.Models.Team", "Team")
+                        .WithMany("SkillToTeams")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("Team");
-                    });
+                    b.Navigation("Skill");
 
-                modelBuilder.Entity("HospitalSite.Models.Team", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.University", "University")
-                            .WithMany("Teams")
-                            .HasForeignKey("UniversityId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("Team");
+                });
 
-                        b.Navigation("University");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Team", b =>
+                {
+                    b.HasOne("HospitalSite.Models.University", "University")
+                        .WithMany("Teams")
+                        .HasForeignKey("UniversityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("HospitalSite.Models.TeamExperience", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Team", "Team")
-                            .WithMany("TeamExperiences")
-                            .HasForeignKey("TeamId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("University");
+                });
 
-                        b.HasOne("HospitalSite.Models.WorkExperience", "WorkExperience")
-                            .WithMany("TeamExperiences")
-                            .HasForeignKey("WorkExperienceId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("HospitalSite.Models.TeamExperience", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Team", "Team")
+                        .WithMany("TeamExperiences")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("Team");
+                    b.HasOne("HospitalSite.Models.WorkExperience", "WorkExperience")
+                        .WithMany("TeamExperiences")
+                        .HasForeignKey("WorkExperienceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                        b.Navigation("WorkExperience");
-                    });
+                    b.Navigation("Team");
 
-                modelBuilder.Entity("HospitalSite.Models.TeamSocial", b =>
-                    {
-                        b.HasOne("HospitalSite.Models.Team", "Team")
-                            .WithMany("TeamSocials")
-                            .HasForeignKey("TeamId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+                    b.Navigation("WorkExperience");
+                });
 
-                        b.Navigation("Team");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.TeamSocial", b =>
+                {
+                    b.HasOne("HospitalSite.Models.Team", "Team")
+                        .WithMany("TeamSocials")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                            .WithMany()
-                            .HasForeignKey("RoleId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+                    b.Navigation("Team");
+                });
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                            .WithMany()
-                            .HasForeignKey("RoleId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                    {
-                        b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                            .WithMany()
-                            .HasForeignKey("UserId")
-                            .OnDelete(DeleteBehavior.Cascade)
-                            .IsRequired();
-                    });
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Category", b =>
-                    {
-                        b.Navigation("Researches");
-                    });
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Research", b =>
-                    {
-                        b.Navigation("ResearchImages");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Category", b =>
+                {
+                    b.Navigation("Researches");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Skill", b =>
-                    {
-                        b.Navigation("SkillToTeams");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.Research", b =>
+                {
+                    b.Navigation("ResearchImages");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.Team", b =>
-                    {
-                        b.Navigation("SkillToTeams");
+            modelBuilder.Entity("HospitalSite.Models.Skill", b =>
+                {
+                    b.Navigation("SkillToTeams");
+                });
 
-                        b.Navigation("TeamExperiences");
+            modelBuilder.Entity("HospitalSite.Models.Team", b =>
+                {
+                    b.Navigation("Appointments");
 
-                        b.Navigation("TeamSocials");
-                    });
+                    b.Navigation("SkillToTeams");
 
-                modelBuilder.Entity("HospitalSite.Models.University", b =>
-                    {
-                        b.Navigation("Teams");
-                    });
+                    b.Navigation("TeamExperiences");
 
-                modelBuilder.Entity("HospitalSite.Models.WorkExperience", b =>
-                    {
-                        b.Navigation("TeamExperiences");
-                    });
+                    b.Navigation("TeamSocials");
+                });
 
-                modelBuilder.Entity("HospitalSite.Models.CustomUser", b =>
-                    {
-                        b.Navigation("Blogs");
-                    });
+            modelBuilder.Entity("HospitalSite.Models.University", b =>
+                {
+                    b.Navigation("Teams");
+                });
+
+            modelBuilder.Entity("HospitalSite.Models.WorkExperience", b =>
+                {
+                    b.Navigation("TeamExperiences");
+                });
+
+            modelBuilder.Entity("HospitalSite.Models.CustomUser", b =>
+                {
+                    b.Navigation("Blogs");
+                });
 #pragma warning restore 612, 618
-            }
         }
     }
 }

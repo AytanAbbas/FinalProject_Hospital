@@ -11,13 +11,13 @@ namespace HospitalSite.Models
 {
     public class CustomUser : IdentityUser
     {
-        [MaxLength(250)]
+        [MaxLength(250), Required]
         public string Image { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
-        [MaxLength(30)]
+        [MaxLength(30), Required]
         public string Name { get; set; }
-        [MaxLength(30)]
+        [MaxLength(30), Required]
         public string Surname { get; set; }
         public DateTime CreatedDate { get; set; }
         public List<Blog> Blogs { get; set; }
